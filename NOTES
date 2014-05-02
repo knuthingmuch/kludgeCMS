@@ -1,0 +1,1 @@
+NO session_start() in markup whatsoever. All user interface pages should have session_start(), same goes for proccessing pages(except those using login()).

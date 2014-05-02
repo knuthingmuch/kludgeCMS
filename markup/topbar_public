@@ -1,0 +1,5 @@
+<div id='topbarright' style='float:right;word-spacing:0;'>
+		<a class='loginbtn topbar' href='loginpage.php'><div class='topnav'>LOGIN</div></a>|
+		<a class='topbar' href=''><div class='topnav'>REGISTER</div></a>|
+		<a class='searchbtn topbar' href='qsearchpage.php'><div class='topnav'>SEARCH</div></a>
+</div> 
