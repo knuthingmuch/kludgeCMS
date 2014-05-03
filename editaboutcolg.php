@@ -17,21 +17,8 @@ if(isset($_SESSION['uid'],$_GET['colgcode']) and isColgAdmin($_SESSION['uid']) a
 	
 	if($result)
 	{
-// 		include 'markup/ckeditor_aboutdata.php';
-		echo 
-<<<EOT
-	<form action='proc/updateaboutcolg.php' method='post'>
-	<textarea name='aboutdata' id='aboutdata'>  
-EOT;
-	echo $result['about'].
-<<<EOT
-	</textarea>
-	<script>
-		CKEDITOR.replace( 'aboutdata' );
-	</script>
-	<div class='submitbutton'><input id='submitbutton' type='submit' value='UPDATE'><div>
-	<form>
-EOT;
+		include 'markup/ckeditor_aboutdata.php';
+		$_SESSION['tempcolgcode']=$_GET['colgcode'];	//since $_SESSION[collegecode] won't be set for siteadmin but colgcode info is required for update query in updateaboutcolg.php
 	}
 	//----------else ERROR PAGE TODO
 }

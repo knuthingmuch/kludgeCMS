@@ -5,14 +5,16 @@ require_once 'markup/template_top.php';
 ?>
 
 <div id='colgname'>
-
-</div>
-
-<div id='intro'>
 <?php
 	$SYSCONN=db_sysconnect();
-	$result=mysqli_query($SYSCONN,"SELECT about FROM colleges WHERE collegecode='".$_GET['colgcode']."';") or systemlog("SQL query error: ".mysql_error());
+	$result=mysqli_query($SYSCONN,"SELECT collegename,about FROM colleges WHERE collegecode='".$_GET['colgcode']."';") or systemlog("SQL query error: ".mysql_error());
 	$result=mysqli_fetch_array($result);
+	echo $result['collegename'];
+?>
+</div>
+
+<div id='about'>
+<?php
 	echo $result['about'];
 	db_sysclose($SYSCONN);
 ?>

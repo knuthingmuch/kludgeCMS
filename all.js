@@ -23,6 +23,6 @@ $(document).ready(function() {
 //     });
 	
 // 	ALL CKEDITOR STUFF HERE:
-	$( 'textarea#postdata' ).ckeditor();
-	$( 'textarea#aboutdata' ).ckeditor();
+// 	$( 'textarea#postdata' ).ckeditor();
+// 	$( 'textarea#aboutdata' ).ckeditor();
 }); 

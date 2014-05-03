@@ -1,4 +1,4 @@
-//<?php
+<?php
 	echo 
 <<<EOT
 	<form action='proc/updateaboutcolg.php' method='post'>
@@ -13,4 +13,4 @@ EOT;
 	<div class='submitbutton'><input id='submitbutton' type='submit' value='UPDATE'><div>
 	<form>
 EOT;
-//?>
+?>
