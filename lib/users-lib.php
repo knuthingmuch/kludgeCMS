@@ -4,10 +4,10 @@ require_once 'system-lib.php';
 
 function isSiteAdmin($uid)	//isASiteAdmin???
 {
-	$SYSCONN=db_sysconnect();
+	$CONN=db_sysconnect();
 	
-	$result = mysqli_query($SYSCONN,"SELECT utype FROM users WHERE uid=$uid") or systemlog("SQL query error: ".mysql_error());
-	db_sysclose($SYSCONN);
+	$result = mysqli_query($CONN,"SELECT utype FROM users WHERE uid=$uid") or systemlog("SQL query error: ".mysql_error());
+	db_sysclose($CONN);
 	
 	if ($result)
 	{
@@ -23,10 +23,10 @@ function isSiteAdmin($uid)	//isASiteAdmin???
 
 function isColgAdmin($uid)
 {
-	$SYSCONN=db_sysconnect();
+	$CONN=db_sysconnect();
 	
-	$result = mysqli_query($SYSCONN,"SELECT utype FROM users WHERE uid=$uid") or systemlog("SQL query error: ".mysql_error());
-	db_sysclose($SYSCONN);
+	$result = mysqli_query($CONN,"SELECT utype FROM users WHERE uid=$uid") or systemlog("SQL query error: ".mysql_error());
+	db_sysclose($CONN);
 	
 	if ($result)
 	{
@@ -42,13 +42,13 @@ function isColgAdmin($uid)
 
 function login($uname,$passwd)
 {
-	$SYSCONN=db_sysconnect();
+	$CONN=db_sysconnect();
 	
 	$passwd_hash = hash('sha256', $passwd);
 	
-	$result = mysqli_query($SYSCONN,"SELECT uid,uname,fullname,passwd_hash,collegecode FROM users WHERE uname='$uname';") or systemlog("SQL query error: ".mysql_error());
+	$result = mysqli_query($CONN,"SELECT uid,uname,fullname,passwd_hash,collegecode FROM users WHERE uname='$uname';") or systemlog("SQL query error: ".mysql_error());
 
-	db_sysclose($SYSCONN);
+	db_sysclose($CONN);
 	
 	if($result)
 	{

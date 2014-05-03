@@ -3,6 +3,7 @@ html {overflow-y:scroll;}
 body {font-size:15px;background-color:#F6F4F0;margin:0px;font-family:verdana,helvetica,arial,sans-serif;}
 
 a:link {text-decoration:none}
+img {border-radius:5px;}
 
 header {width:100%;margin:0px;height:60px;text-align:center;padding:0;background-color:white;z-index:1000;}
 #banner {width:1076px;margin:0px auto;height:58px;text-align:center;background-color:white;z-index:1000; border:1px solid #aaa;}
@@ -13,10 +14,10 @@ a.topbar{display:inline-block;color:#195dac;font-weight:bold;}
 a.topbar:hover{color:black;}
 .topnav{display:inline-block;margin:0px;padding:0px 4px 0px 4px;border-radius:2px;}
 .topnav:hover{background-color:#b9b9b9;}
+#logoutbtn:hover {background-color:red;color:white;}
 .tab_btn {width:194px; min-height:20px; max-height:auto; float:left; background-color:white; border:1px solid white; border-radius:5px; text-align:center;padding:2px;margin-bottom:4px;}
 .tab_btn:hover {color:white;background-color:#195dac;}
 a.tab_link {font-size:14px;color:#195dac;font-weight:bold;}
-
 
 main {width:1080px; min-height:400px; max-height:auto; margin:0 auto; }
 #main_wrap {width:1070px; min-height:100%; max-height:auto; float:left;background-color:#fff; box-shadow:0 20px 25px #aaa;padding:5px;}
@@ -27,7 +28,8 @@ main {width:1080px; min-height:400px; max-height:auto; margin:0 auto; }
 
 #about {height:auto;overflow:auto;}
 
-#submitbutton {height:30px;width:70px;background-color:#195dac;border:1px solid #195dac;border-radius:5px;font-weight:bold;}
+#submitbutton {height:30px;width:70px;background-color:#195dac;border:1px solid #195dac;border-radius:5px;font-weight:normal;}
+#submitbutton:hover {font-weight:bold;}
 .submitbutton {text-align:center;}
 
 footer {width:100%;margin:0px;height:30px;text-align:center;padding:0;background-color:white;z-index:1000; float:left;}

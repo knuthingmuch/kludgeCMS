@@ -26,14 +26,14 @@ require_once 'lib/display-lib.php';
 <body>
 <header>
 	<div id="banner">
-	<img src='nss_logo.png' height='56px' width='56px' style='padding-left:320px;float:left;' />
-	<p style='text-align:left;font-size:25px;font-weight:bold;padding:0px;'>N.S.S. CELL, GOA UNIVERSITY</p>
+	<img src="nss_logo.png" height='56px' width='56px' style="padding-left:320px;float:left;" />
+	<p style="text-align:left;font-size:25px;font-weight:bold;padding:0px;">N.S.S. CELL, GOA UNIVERSITY</p>
 	</div>
 
 	<div id="topcontainer">
 		<div id="topbar">
-			<div id='topbarleft' style='float:left;word-spacing:0;'>
-				<a class='topbar topnav' href='index.php'>HOME</a>|<a class='topbar topnav' href=''>ABOUT NSS @ GU</a>|<a class='topbar topnav' href=''>CONTACT US</a>|<a class='topbar' href='#'><div class='topnav'>RECENT</div></a>
+			<div id="topbarleft" style="float:left;word-spacing:0;">
+				<a class="topbar topnav" href="index.php">HOME</a>|<a class='topbar topnav' href=''>ABOUT NSS @ GU</a>|<a class='topbar topnav' href=''>CONTACT US</a>|<a class='topbar' href='#'><div class='topnav'>RECENT</div></a>
 			</div>
 <?php
 			if(isset($_SESSION['uid']))
@@ -51,7 +51,7 @@ require_once 'lib/display-lib.php';
 			<div class='close'>
 				<a href='#' class='close'>CLOSE</a>
 			</div>
-		<form action='proc/userlogin.php' method='post'>
+		<form action="proc/userlogin.php" method="post">
 			<p>Username:<input style='float:right' name='uname' type='text' /></p>
 			<p>Password:<input style='float:right' name='passwd' type='password' /></p>
 			<div class='loginbutton'><input id='loginbutton' type='submit' value='LOGIN'/></div>

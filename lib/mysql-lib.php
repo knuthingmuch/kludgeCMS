@@ -1,7 +1,7 @@
 <?php 
 require_once 'system-lib.php';
 
-//MySQL siteadmin user credentials	//seperate user required???
+//MySQL siteadmin user credentials	//seperate user required??? nah..
 $db_admhost='localhost';
 $db_admuname='siteadmin';
 $db_admpasswd='';

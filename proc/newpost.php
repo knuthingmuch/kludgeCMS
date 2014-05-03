@@ -2,10 +2,10 @@
 
 require_once '../lib/mysql-lib.php';
 
-$SYSCONN=db_sysconnect();
+$CONN=db_sysconnect();
 
-mysqli_query($SYSCONN,"INSERT INTO posts VALUES ('','1','sxc','sdgsd','554353','','')");
-echo mysqli_insert_id($SYSCONN);
+mysqli_query($CONN,"INSERT INTO posts VALUES ('','1','sxc','sdgsd','554353','','')");
+echo mysqli_insert_id($CONN);
 
-db_sysclose($SYSCONN);
+db_sysclose($CONN);
 ?>

@@ -32,9 +32,9 @@ function getUserPopups()
 
 function show_tab_btn()			//generate once and OP to file. TODO -->>PERFORMANCE
 {
-	$SYSCONN=db_sysconnect();
-	$result = mysqli_query($SYSCONN,"SELECT collegename,collegecode FROM colleges ORDER BY collegenum;") or systemlog("SQL query error: ".mysql_error());	//and die?? TODO
-	db_sysclose($SYSCONN);
+	$CONN=db_sysconnect();
+	$result = mysqli_query($CONN,"SELECT collegename,collegecode FROM colleges ORDER BY collegenum;") or systemlog("SQL query error: ".mysql_error());	//and die?? TODO
+	db_sysclose($CONN);
 	
 	if($result)
 	{
