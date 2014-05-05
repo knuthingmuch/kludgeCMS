@@ -20,16 +20,6 @@ function getUserTopbar($uid)
 		include 'markup/topbar_basic.php';
 }
 
-function getUserPopups()
-{
-	if(isSiteAdmin($uid))
-		include 'markup/popups_siteadmin.php';
-	else if (isColgAdmin($uid))
-		include 'markup/popups_colgadmin.php';
-	else
-		include 'markup/popups_basic.php';
-}
-
 function show_tab_btn()			//generate once and OP to file. TODO -->>PERFORMANCE
 {
 	$CONN=db_sysconnect();

@@ -34,8 +34,9 @@ if(isset($_SESSION['uid'],$_GET['colgcode']) and isColgAdmin($_SESSION['uid']) a
 			CKEDITOR.replace( 'aboutdata' );
 		</script>
 		</br>
-		<div class='submitbutton'><input id='submitbutton' type='submit' value='UPDATE'><div>
+		<div class='submitbutton'><input id='submitbutton' type='submit' value='UPDATE'></div>
 		<form>
+		<div class="resetbutton"><a id="resetbutton" href="editaboutcolg.php?colgcode=<?php echo $_GET['colgcode'] ?>">RESET</a></div>
 <?php
 		$_SESSION['tempcolgcode']=$_GET['colgcode'];	//since $_SESSION[collegecode] won't be set for siteadmin but colgcode info is required for update query in updateaboutcolg.php
 	}
