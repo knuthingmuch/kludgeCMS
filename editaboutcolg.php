@@ -5,7 +5,7 @@ session_start();
 require_once 'lib/users-lib.php';
 require_once 'lib/mysql-lib.php';
 
-if(isset($_SESSION['uid'],$_GET['colgcode']) and isColgAdmin($_SESSION['uid']) and $_SESSION['collegecode']==$_GET['colgcode'] or isSiteAdmin($_SESSION['uid']))	//only if user is admin of colg of which info he's trying to modify, or is siteadmin.
+if(isset($_SESSION['uid'],$_GET['colgcode']) and (isColgAdmin($_SESSION['uid']) and $_SESSION['collegecode']==$_GET['colgcode'] or isSiteAdmin($_SESSION['uid'])))	//only if user is admin of colg of which info he's trying to modify, or is siteadmin.
 {
 	require_once 'markup/template_top.php';
 	
@@ -20,20 +20,21 @@ if(isset($_SESSION['uid'],$_GET['colgcode']) and isColgAdmin($_SESSION['uid']) a
 ?>
 		<h3>College Information</h3>
 		<u>Please be careful, any changes made here will be reflected across the website.</u>
-		</br></br>
+		<br/><br/>
 		<form action="proc/updateaboutcolg.php" method="post">
 		College Name:<input type="text" name="colgname" style="min-width:700px;" value="<?php echo $result['collegename']; ?>">
 		</input>
-		</br></br>
+		<br/><br/>
 		About the College/NSS unit:
 		<textarea name='aboutdata' id='aboutdata'>  
 <?php 	echo $result['about']; 
 ?>
 		</textarea>
+		<div style="float:right;font-size:12px;">Drag to resize editor.&#8593;</div>
 		<script>
 			CKEDITOR.replace( 'aboutdata' );
 		</script>
-		</br>
+		<br/>
 		<div class='submitbutton'><input id='submitbutton' type='submit' value='UPDATE'></div>
 		<form>
 		<div class="resetbutton"><a id="resetbutton" href="editaboutcolg.php?colgcode=<?php echo $_GET['colgcode'] ?>">RESET</a></div>

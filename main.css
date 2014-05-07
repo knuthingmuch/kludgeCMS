@@ -32,7 +32,7 @@ main {width:1080px; min-height:400px; max-height:auto; margin:0 auto; }
 #submitbutton:hover {font-weight:bold;}
 .submitbutton {text-align:center;}
 
-#resetbutton {background-color:#195dac;border:1px solid #195dac;border-radius:3px;font-weight:normal;color:white;font-size:13px;}
+#resetbutton {background-color:#195dac;border-radius:3px;font-weight:normal;color:white;font-size:13px;}
 #resetbutton:hover {font-weight:bold;background-color:red;border:1px solid red}
 .resetbutton {text-align:center;margin-top:4px;}
 
