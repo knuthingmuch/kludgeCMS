@@ -15,7 +15,7 @@ if(isset($_SESSION['uid']) and (isColgAdmin($_SESSION['uid']) or isSiteAdmin($_S
 	$postdate=str_replace("/"," ",date('d/M/Y'));
 	$posttime=date('h:i a');
 	
-	mysqli_query($CONN,"INSERT INTO posts VALUES (NULL,".$_SESSION['uid'].",'".$_SESSION['tempcolgcode']."','".$title."','".$postdate."','".$posttime."','','".$tags."',NULL)") or systemlog("SQL query error: ".mysql_error()); //and die?? TODO
+	mysqli_query($CONN,"INSERT INTO posts VALUES (NULL,".$_SESSION['uid'].",'".$_SESSION['tempcolgcode']."','".$title."','".$postdate."','".$posttime."','','".$tags."',NULL, NOW())") or systemlog("SQL query error: ".mysql_error()); //and die?? TODO
 	
 	$postid=mysqli_insert_id($CONN);
 	

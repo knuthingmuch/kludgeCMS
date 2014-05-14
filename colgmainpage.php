@@ -1,4 +1,5 @@
 <?php
+$PAGETITLE="NSS Goa | College main page.";
 require_once 'lib/mysql-lib.php';
 session_start();
 if(!isset($_GET['colgcode']))		//to avoid undefined variable(?)
@@ -33,7 +34,7 @@ if(!isset($_GET['colgcode']))		//to avoid undefined variable(?)
 	else
 	{
 		require_once 'markup/template_top.php';
-		echo "You have not specified your college or </br> requested page does not exist.";		//TODO? better message?
+		echo "<div id='error'>You have not specified your college or <br/> requested page does not exist.</div>";		//TODO? better message?
 	}
 ?>
 

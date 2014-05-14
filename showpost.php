@@ -1,4 +1,5 @@
 <?php
+$PAGETITLE="NSS Goa | Post";
 require_once 'lib/mysql-lib.php';
 session_start();
 if(!isset($_GET['postid']))
@@ -10,9 +11,9 @@ if(!isset($_GET['postid']))
 	$SYSCONN=db_sysconnect();
 	$result=mysqli_query($SYSCONN,"SELECT * FROM posts WHERE postid='".$_GET['postid']."';") or systemlog("SQL query error: ".mysql_error());
 	$postinfo=mysqli_fetch_array($result);
-	$result=mysqli_query($SYSCONN,"SELECT fullname FROM users WHERE uid='".$postinfo['posteruid']."';") or systemlog("SQL query error: ".mysql_error());
+	$result=mysqli_query($SYSCONN,"SELECT fullname FROM users WHERE uid='".$postinfo['authoruid']."';") or systemlog("SQL query error: ".mysql_error());
 	$result=mysqli_fetch_array($result);
-	$postername=$result['fullname'];
+	$authorname=$result['fullname'];
 	$result=mysqli_query($SYSCONN,"SELECT content FROM postdata WHERE postid='".$_GET['postid']."';") or systemlog("SQL query error: ".mysql_error());
 	$result=mysqli_fetch_array($result);
 	$postcontent=$result['content'];
@@ -26,6 +27,9 @@ if(!isset($_GET['postid']))
 	<div id='posttitle'>
 <?php	
 	echo $postinfo['title'];
+	//span
+	echo "<br/><span id='authorname'> ".$authorname." </span><span id='posttime'> ".$postinfo['postdate']." at ".$postinfo['posttime']." </span>";
+	//span
 ?>
 	</div>
 
@@ -40,7 +44,7 @@ if(!isset($_GET['postid']))
 	else
 	{
 		require_once 'markup/template_top.php';
-		echo "Requested page does not exist.";		//TODO? better message?
+		echo "<div id='error'>Requested page does not exist.</div>";		//TODO? better message?
 	}
 ?>
 

@@ -1,4 +1,4 @@
-<?php
+<?php	//only template_top.php uses these functions, may be merged.
 require_once 'users-lib.php';
 require_once 'system-lib.php';
 // $SITEROOT=$_SERVER['DOCUMENT_ROOT'].'/nsssite/';

@@ -12,6 +12,7 @@ header {width:100%;margin:0px;height:60px;text-align:center;padding:0;background
 #tabs_cont {width:200px; min-height:500px; background-color:#195dac; float:left; padding:4px;padding-bottom:0px; border:1px solid #195dac; border-radius:5px;}
 a.topbar{display:inline-block;color:#195dac;font-weight:bold;}
 a.topbar:hover{color:black;}
+#topbarleft{float:left;word-spacing:0;}
 #topbarright{float:right;word-spacing:0;}
 .topnav{display:inline-block;margin:0px;padding:0px 4px 0px 4px;border-radius:2px;}
 .topnav:hover{background-color:#b9b9b9;}
@@ -25,7 +26,9 @@ main {width:1080px; min-height:400px; max-height:auto; margin:0 auto; }
 
 #content {width:832px;max-height:auto; margin-left:214px; background-color:white; border:2px solid #195dac; border-radius:5px; padding:10px; position:absolute;min-height:1116px;}
 
-#posttitle, #colgname {font-size:20px;font-weight:bold;text-align:center;}
+#error {font-size:16px;font-weight:bold;text-align:center;padding-top:50px;}
+
+#posttitle, #colgname {font-size:20px;font-weight:bold;text-align:center;overflow:auto;}
 
 #postcontent, #about {height:auto;overflow:auto;}
 
@@ -33,9 +36,13 @@ main {width:1080px; min-height:400px; max-height:auto; margin:0 auto; }
 #submitbutton:hover {font-weight:bold;}
 .submitbutton {text-align:center;}
 
-#resetbutton {background-color:#195dac;border-radius:3px;font-weight:normal;color:white;font-size:13px;}
+#resetbutton {background-color:#195dac;border-radius:3px;font-weight:normal;color:white;font-size:13px;padding:3px;}
 #resetbutton:hover {font-weight:bold;background-color:red;border:1px solid red}
-.resetbutton {text-align:center;margin-top:4px;}
+.resetbutton {text-align:center;margin-top:8px;}
+
+#posttime, #authorname {font-size:14px;font-weight:normal;padding:0px 5px 0px 5px;}
+#authorname {float:left;}
+#posttime {float:right;}
 
 
 footer {width:100%;margin:0px;height:30px;text-align:center;padding:0;background-color:white;z-index:1000; float:left;}

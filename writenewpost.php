@@ -1,5 +1,4 @@
 <?php
-$PAGETITLE="NSS Goa | New post";
 session_start();
 
 require_once 'lib/users-lib.php';
@@ -7,6 +6,7 @@ require_once 'lib/mysql-lib.php';
 
 if(isset($_SESSION['uid'],$_GET['colgcode']) and (isColgAdmin($_SESSION['uid']) and $_SESSION['collegecode']==$_GET['colgcode'] or isSiteAdmin($_SESSION['uid'])))	//only if user is admin of colg for which new post is to be made, or is siteadmin.
 {
+	$PAGETITLE="NSS Goa | New post";
 	require_once 'markup/template_top.php';
 	
 	$CONN = db_sysconnect();
@@ -21,7 +21,7 @@ if(isset($_SESSION['uid'],$_GET['colgcode']) and (isColgAdmin($_SESSION['uid']) 
 		<h3>New Post: <?php echo $result['collegename']; ?></h3>
 		</br>
 		<form action="proc/newpost.php" method="post">
-		<input type="text" name="posttitle" style="min-width:760px;" placeholder="Post title">
+		Title: <input type="text" name="posttitle" style="min-width:760px;" placeholder="Post title">
 		</input>
 		</br></br>
 		<textarea name='postdata' id='postdata'>  
@@ -34,7 +34,7 @@ if(isset($_SESSION['uid'],$_GET['colgcode']) and (isColgAdmin($_SESSION['uid']) 
 		Tags: <input type="text" name="tags" style="min-width:760px;" placeholder="separate tags with commas(e.g. rally,panaji)">
 		<br/><br/>
 		<div class='submitbutton'><input id='submitbutton' type='submit' value='POST'></div>
-		<form>
+		</form>
 		<div class="resetbutton"><a id="resetbutton" href="writenewpost.php?colgcode=<?php echo $_GET['colgcode'] ?>">RESET</a></div>
 <?php
 		$_SESSION['tempcolgcode']=$_GET['colgcode'];	//since $_SESSION[collegecode] won't be set for siteadmin but colgcode info is required for update query in updateaboutcolg.php
