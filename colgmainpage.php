@@ -1,5 +1,4 @@
 <?php
-$PAGETITLE="NSS Goa | ".$_GET['colgcode'];
 require_once 'lib/mysql-lib.php';
 session_start();
 if(!isset($_GET['colgcode']))		//to avoid undefined variable(?)
@@ -18,14 +17,15 @@ if(!isset($_GET['colgcode']))		//to avoid undefined variable(?)
 		require_once 'markup/template_top.php';
 ?>
 	<div id='colgname'>
-	<?php	echo $result['collegename'];
-	?>
+<?php
+	echo $result['collegename'];
+?>
 	</div>
 
 	<div id='about'>
-	<?php
+<?php
 		echo $result['about'];
-	?>
+?>
 	</div>
 
 <?php
