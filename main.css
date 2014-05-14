@@ -5,24 +5,32 @@ body {font-size:15px;background-color:#F6F4F0;margin:0px;font-family:verdana,hel
 a:link {text-decoration:none}
 img {border-radius:5px;}
 
-header {width:100%;margin:0px;height:60px;text-align:center;padding:0;background-color:white;z-index:1000;}
-#banner {width:1076px;margin:0px auto;height:58px;text-align:center;background-color:white;z-index:1000; border:1px solid #aaa;}
-#topcontainer {height:25px;background-color:white;width:100%;box-shadow:0 10px 10px #aaa;}
-#topbar {height:20px;width:1040px;margin:auto;word-spacing:12px;font-size:12px;padding-left:20px;padding-right:20px;padding-top:5px;background-color:white;}
-#tabs_cont {width:200px; min-height:500px; background-color:#195dac; float:left; padding:4px;padding-bottom:0px; border:1px solid #195dac; border-radius:5px;}
+header {width:100%;margin:0px;height:84px;text-align:center;padding:0px;background-color:white;z-index:1000;}
+/* header height 85px */
+
+#banner {width:1076px;margin:auto;height:58px;text-align:center;background-color:white;z-index:1000; border:1px solid #aaa;}
+
+#topcontainer {height:24px;margin:0px;padding:0px;background-color:white;width:100%;box-shadow:0 10px 10px #aaa;}
+
+#topbar {height:20px;margin:0px auto 0px auto;padding:2px 20px 2px 20px;width:1040px;word-spacing:12px;font-size:12px;background-color:white;}
+
 a.topbar{display:inline-block;color:#195dac;font-weight:bold;}
 a.topbar:hover{color:black;}
-#topbarleft{float:left;word-spacing:0;}
-#topbarright{float:right;word-spacing:0;}
-.topnav{display:inline-block;margin:0px;padding:0px 4px 0px 4px;border-radius:2px;}
+
+#topbarleft {height:16px;margin:2px;padding:0px;float:left;word-spacing:0;}
+#topbarright {height:16px;margin:2px;padding:0px;float:right;word-spacing:0;}
+
+.topnav{height:16px;display:inline-block;margin:0px;padding:0px 4px 0px 4px;border-radius:2px;}
 .topnav:hover{background-color:#b9b9b9;}
+
+#tabs_cont {width:200px; min-height:500px; background-color:#195dac; float:left; padding:4px;padding-bottom:0px; border:1px solid #195dac; border-radius:5px;}
 #logoutbtn:hover {background-color:red;color:white;}
 .tab_btn {width:194px; min-height:20px; max-height:auto; float:left; background-color:white; border:1px solid white; border-radius:5px; text-align:center;padding:2px;margin-bottom:4px;}
 .tab_btn:hover {color:white;background-color:#195dac;}
 a.tab_link {font-size:14px;color:#195dac;font-weight:bold;}
 
 main {width:1080px; min-height:400px; max-height:auto; margin:0 auto; }
-#main_wrap {width:1070px; min-height:100%; max-height:auto; float:left;background-color:#fff; box-shadow:0 20px 25px #aaa;padding:5px;}
+#main_wrap {width:1070px; min-height:100%; max-height:auto; float:left;background-color:#fff; box-shadow:0 20px 25px #aaa;padding:0px 5px 5px 5px;}
 
 #content {width:832px;max-height:auto; margin-left:214px; background-color:white; border:2px solid #195dac; border-radius:5px; padding:10px; position:absolute;min-height:1116px;}
 
@@ -45,11 +53,16 @@ main {width:1080px; min-height:400px; max-height:auto; margin:0 auto; }
 #posttime {float:right;}
 
 
-footer {width:100%;margin:0px;height:30px;text-align:center;padding:0;background-color:white;z-index:1000; float:left;}
+footer {width:100%;margin:0px;height:30px;text-align:center;padding:0;background-color:white; float:left;}
 
-/* ------------------------------------------------------------------------------------------------------------- */
-#topbarright .dropdwn {display:inline-block;}
-#topbarright ul {background-color:red;position: absolute;display: none;z-index:1000;list-style-type:none;}
-#topbarright .dropdwn:hover {position: relative;}
-#topbarright .dropdwn:hover ul {display: block;}
-#topbarright li {display:inline-block;white-space:nowrap}
+/* -------------------------------------------DROPDOWN MENU-------------------------------------------------------- */
+#topbarright .dropdwn {display:inline-block;border-radius:2px;}
+#topbarright .dropdwn ul {padding:1px;background-color:#fff;position: absolute;display: none;z-index:1000;list-style-type:none;border:1px solid #195dac;border-top:0px;border-radius:2px;}
+#topbarright .dropdwn:hover {position: relative;background-color:#b9b9b9;}
+#topbarright .dropdwn:hover .topnav {color:black;}
+#topbarright .dropdwn:hover ul {display: block;top:4px;}
+#topbarright .dropdwn li {display:block;white-space:auto;min-width:82px;padding:1px 0px 1px 0px;font-weight:bold;color:#195dac;}
+#topbarright .dropswn li:hover {background-color:#b9b9b9;border-radius:2px;}
+#topbarright .dropdwn li:hover div {color:black;}
+#topbarrright .dropdwn li.dropdwn {border-bottom:1px solid #195dac;}
+/* ----------------------------------------------------------------------------------------------------------------- */
