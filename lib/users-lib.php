@@ -2,42 +2,56 @@
 require_once 'mysql-lib.php';
 require_once 'system-lib.php';
 
-function isSiteAdmin($uid)	//isASiteAdmin???
+// function isSiteAdmin($uid)	//isASiteAdmin???
+// {
+// 	$CONN=db_sysconnect();
+// 	
+// 	$result = mysqli_query($CONN,"SELECT utype FROM users WHERE uid=$uid") or systemlog("SQL query error: ".mysql_error());
+// 	db_sysclose($CONN);
+// 	
+// 	if ($result)
+// 	{
+// 		$row = mysqli_fetch_array($result);		//uid is primary, so only one row returned.
+// 		if($row['utype']=='SADMIN')
+// 			return true;
+// 		else
+// 			return false;
+// 	}
+// 	else
+// 		return false;
+// }
+
+function isSiteAdmin($uid)	//arg for backwd compatibility
 {
-	$CONN=db_sysconnect();
-	
-	$result = mysqli_query($CONN,"SELECT utype FROM users WHERE uid=$uid") or systemlog("SQL query error: ".mysql_error());
-	db_sysclose($CONN);
-	
-	if ($result)
-	{
-		$row = mysqli_fetch_array($result);		//uid is primary, so only one row returned.
-		if($row['utype']=='SADMIN')
-			return true;
-		else
-			return false;
-	}
-	else
-		return false;
+	if(isset($_SESSION['utype']) and $_SESSION['utype']=='SADMIN')
+		return true;
+	return false;
 }
 
-function isColgAdmin($uid)
+// function isColgAdmin($uid)
+// {
+// 	$CONN=db_sysconnect();
+// 	
+// 	$result = mysqli_query($CONN,"SELECT utype FROM users WHERE uid=$uid") or systemlog("SQL query error: ".mysql_error());
+// 	db_sysclose($CONN);
+// 	
+// 	if ($result)
+// 	{
+// 		$row = mysqli_fetch_array($result);		//uid is primary, so only one row returned.
+// 		if($row['utype']=='CADMIN')
+// 			return true;
+// 		else
+// 			return false;
+// 	}
+// 	else
+// 		return false;
+// }
+
+function isColgAdmin($uid)	//arg for backwd compatibility
 {
-	$CONN=db_sysconnect();
-	
-	$result = mysqli_query($CONN,"SELECT utype FROM users WHERE uid=$uid") or systemlog("SQL query error: ".mysql_error());
-	db_sysclose($CONN);
-	
-	if ($result)
-	{
-		$row = mysqli_fetch_array($result);		//uid is primary, so only one row returned.
-		if($row['utype']=='CADMIN')
-			return true;
-		else
-			return false;
-	}
-	else
-		return false;
+	if(isset($_SESSION['utype']) and $_SESSION['utype']=='CADMIN')
+		return true;
+	return false;
 }
 
 function login($uname,$passwd)
@@ -59,6 +73,7 @@ function login($uname,$passwd)
 			session_start();
 			$_SESSION['uid']=$row['uid'];
 			$_SESSION['uname']=$row['uname'];
+			$_SESSION['utype']=$row['utype'];
 			$_SESSION['fullname']=$row['fullname'];
 			$_SESSION['collegecode']=$row['collegecode'];
 			return true;
