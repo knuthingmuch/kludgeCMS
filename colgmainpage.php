@@ -18,7 +18,7 @@ if(!isset($_GET['colgcode']))		//to avoid undefined variable(?)
 		require_once 'markup/template_top.php';
 ?>
 	<link rel="stylesheet" type="text/css" href="css/colgmainpage.css">
-	<link rel="stylesheet" type="text/css" href="css/listposts.css">
+	<link rel="stylesheet" type="text/css" href="css/postslist.css">
 	<div id='colginfo'>
 	<div id='colgname'>
 <?php

@@ -27,10 +27,9 @@ if(!isset($_GET['postid']))
 	<link rel="stylesheet" type="text/css" href="css/showpost.css">
 	<div id='posthead'>
 <?php	
-	echo $postinfo['title'];
-	//span
-	echo "<br/><span id='authorname'> ".$authorname." </span><span id='posttime'> ".$postinfo['postdate']." at ".$postinfo['posttime']." </span>";
-	//span
+	echo "<div id='posttitle'>".$postinfo['title']."</div>";
+	
+	echo "<span id='authorname'> ".$authorname." </span><span id='posttime'> ".$postinfo['postdate']." at ".$postinfo['posttime']." </span>";
 ?>
 	</div>
 
