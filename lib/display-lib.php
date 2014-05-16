@@ -1,26 +1,24 @@
-<?php	//only template_top.php uses these functions, may be merged.
+<?php
 require_once 'users-lib.php';
 require_once 'system-lib.php';
 // $SITEROOT=$_SERVER['DOCUMENT_ROOT'].'/nsssite/';
 
-function getPublicTopbar()
+function getPublicTopbar()		//only used in template, may be merged.
 {
-// 	global $SITEROOT;
 	include 'markup/topbar_public';
 }
 
-function getUserTopbar($uid)
+function getUserTopbar($uid)	//only used in template, may be merged.
 {
-// 	global $SITEROOT;
-	if(isSiteAdmin($uid))
+	if(userIsSiteAdmin())
 		include 'markup/topbar_siteadmin.php';
-	else if (isColgAdmin($uid))
+	else if (userIsColgAdmin())
 		include 'markup/topbar_colgadmin.php';
 	else
 		include 'markup/topbar_basic.php';
 }
 
-function show_tab_btn()			//generate once and OP to file. TODO -->>PERFORMANCE
+function show_tab_btn()			//generate once and OP to file. -->>PERFORMANCE TODO
 {
 	$CONN=db_sysconnect();
 	$result = mysqli_query($CONN,"SELECT collegename,collegecode FROM colleges ORDER BY collegenum;") or systemlog("SQL query error: ".mysql_error());	//and die?? TODO
@@ -31,6 +29,54 @@ function show_tab_btn()			//generate once and OP to file. TODO -->>PERFORMANCE
 		while($row = mysqli_fetch_array($result))
 		{
 			echo "<a class='tab_link' id='".$row['collegecode']."_tab' href='colgmainpage.php?colgcode=$row[collegecode]'>\n"."<div class='tab_btn'>".$row['collegename']."</div>\n"."</a>\n";
+		}
+	}
+}
+
+function excerpt($content)
+{
+	$pos=strpos($content,"<!--more-->");
+	if($pos)
+		return substr($content,0,$pos);
+	return $content;
+}
+
+function getColgPostList($beginaft,$number,$colgcode)		//eg;(0,3,'sxc') gives latest 3 posts from sxc.
+{
+	$CONN=db_sysconnect();
+
+	$post= mysqli_query($CONN,"SELECT * FROM posts,users,postdata WHERE posts.postid=postdata.postid and posts.authoruid=users.uid and posts.collegecode='$colgcode' ORDER BY pdatetime LIMIT $beginaft,$number;") or systemlog("SQL query error: ".mysql_error());	//and die?? TODO
+
+	db_sysclose($CONN);
+
+	if($post)
+	{
+		while($row=mysqli_fetch_array($post))
+		{
+?>
+		<div class="postlistitem">
+			<div class="postlistitem" id="itemhead">
+		<?php
+				echo $row['title']
+		?>
+				<span class="postlistitem" id="authorname">
+		<?php
+				echo $row['fullname']
+		?>
+				</span>
+				<span class="postlistitem" id="posttime">
+		<?php
+				echo "$row[postdate] at $row[posttime]"
+		?>
+				</span>
+				</div>
+				<div class="postlistitem">
+		<?php
+				echo excerpt($row['content']);
+		?>
+				</div>
+		</div>
+<?php
 		}
 	}
 }

@@ -1,0 +1,8 @@
+
+#posthead {font-size:20px;font-weight:bold;text-align:center;overflow:auto;}
+
+#postcontent {height:auto;overflow:auto;}
+
+#posttime, #authorname {font-size:14px;font-weight:normal;padding:0px 5px 0px 5px;}
+#authorname {float:left;}
+#posttime {float:right;}

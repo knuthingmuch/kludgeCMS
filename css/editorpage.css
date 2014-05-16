@@ -1,0 +1,7 @@
+#submitbutton {height:30px;width:70px;background-color:#195dac;border:1px solid #195dac;border-radius:5px;font-weight:normal;}
+#submitbutton:hover {font-weight:bold;}
+.submitbutton {text-align:center;}
+
+#resetbutton {background-color:#195dac;border-radius:3px;font-weight:normal;color:white;font-size:13px;padding:3px;}
+#resetbutton:hover {font-weight:bold;background-color:red;border:1px solid red}
+.resetbutton {text-align:center;margin-top:8px;}

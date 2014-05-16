@@ -18,6 +18,7 @@ if(isset($_SESSION['uid'],$_GET['colgcode']) and (isColgAdmin($_SESSION['uid']) 
 	if($result)
 	{
 ?>
+		<link rel="stylesheet" type="text/css" href="css/editorpage.css">
 		<h3>College Information</h3>
 		<u>Please be careful, any changes made here will be reflected across the website.</u>
 		<br/><br/>

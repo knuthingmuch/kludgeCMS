@@ -17,6 +17,7 @@ if(!isset($_GET['colgcode']))		//to avoid undefined variable(?)
 		$PAGETITLE="NSS Goa | ".$result['collegename'];
 		require_once 'markup/template_top.php';
 ?>
+	<link rel="stylesheet" type="text/css" href="css/aboutcolg.css">
 	<div id='colgname'>
 <?php
 	echo $result['collegename'];
@@ -28,6 +29,12 @@ if(!isset($_GET['colgcode']))		//to avoid undefined variable(?)
 		echo $result['about'];
 ?>
 	</div>
+	
+	<div id='postlist'>
+<?php
+	getColgPostList(0,3,$_GET['colgcode']);
+?>
+	</div>
 
 <?php
 	}
@@ -37,12 +44,6 @@ if(!isset($_GET['colgcode']))		//to avoid undefined variable(?)
 		echo "<div id='error'>You have not specified your college or <br/> requested page does not exist.</div>";		//TODO? better message?
 	}
 ?>
-
-<div id='gist'>
-<?php
-	
-?>
-</div>
 
 <?php
 require_once 'markup/template_botm.php';

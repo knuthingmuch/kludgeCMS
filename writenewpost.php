@@ -18,12 +18,12 @@ if(isset($_SESSION['uid'],$_GET['colgcode']) and (isColgAdmin($_SESSION['uid']) 
 	if($result)
 	{
 ?>
+		<link rel="stylesheet" type="text/css" href="css/editorpage.css">
 		<h3>New Post: <?php echo $result['collegename']; ?></h3>
-		</br>
+		<br/>
 		<form action="proc/newpost.php" method="post">
 		Title: <input type="text" name="posttitle" style="min-width:760px;" placeholder="Post title">
-		</input>
-		</br></br>
+		<br/><br/>
 		<textarea name='postdata' id='postdata'>  
 		</textarea>
 		<div style="float:right;font-size:12px;">Drag to resize editor.&#8593;</div>

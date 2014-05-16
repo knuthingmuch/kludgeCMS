@@ -1,3 +1,7 @@
+<script src="ckeditor/ckeditor.js"></script>
+<script src="ckeditor/adapters/jquery.js"></script>
+<script src="../../ckeditor.js"></script>
+
 <div id='topbarright' style='float:right;word-spacing:0;'>
 	<?php echo "Hello ".$_SESSION['fullname']; ?> |<div class="dropdwn">
 	<a class='topbar' href='colgmainpage.php?colgcode=<?php echo $_SESSION['collegecode'];?>'><div class='topnav'>MY COLLEGE</div></a>

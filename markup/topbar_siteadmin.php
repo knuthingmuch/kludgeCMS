@@ -1,3 +1,7 @@
+<script src="ckeditor/ckeditor.js"></script>
+<script src="ckeditor/adapters/jquery.js"></script>
+<script src="../../ckeditor.js"></script>
+
 <div id='topbarright' style='float:right;word-spacing:0;'>
 	<?php echo "Hello ".$_SESSION['fullname']; ?> |
 	<a class='topbar' href=''><div class='topnav'>MANAGE</div></a>|

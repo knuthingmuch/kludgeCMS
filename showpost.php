@@ -24,7 +24,8 @@ if(!isset($_GET['postid']))
 		$PAGETITLE="NSS Goa | ".$postinfo['title'];
 		require_once 'markup/template_top.php';
 ?>
-	<div id='posttitle'>
+	<link rel="stylesheet" type="text/css" href="css/showpost.css">
+	<div id='posthead'>
 <?php	
 	echo $postinfo['title'];
 	//span

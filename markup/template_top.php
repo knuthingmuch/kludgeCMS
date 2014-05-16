@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php 
-// $SITEROOT=$_SERVER['DOCUMENT_ROOT'].'/nsssite/';
+// DEFINE $PAGETITLE ON DISPLAY PAGE
 require_once 'lib/display-lib.php';
 ?>
 
@@ -12,14 +12,10 @@ require_once 'lib/display-lib.php';
 
 <title id='page_title'><?php echo $PAGETITLE ?></title>
 
-<link rel="stylesheet" type="text/css" href="main.css">
-<link rel="stylesheet" type="text/css" href="popups.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
 
 <script src="lib/jquery-1.9.1.min.js" type="text/javascript"></script>
-<script src="ckeditor/ckeditor.js"></script>
-<script src="ckeditor/adapters/jquery.js"></script>
-<script src="../../ckeditor.js"></script> <!-- assumes this file is in ckeditor/plugins/wpmore -->
-
+<!-- ckeditor only for admins -->
 <script src="all.js" type="text/javascript"></script>
 
 </head>
@@ -34,7 +30,7 @@ require_once 'lib/display-lib.php';
 	<div id="topcontainer">
 		<div id="topbar">
 			<div id="topbarleft">
-				<a class="topbar topnav" href="index.php">HOME</a>|<a class='topbar topnav' href=''>ABOUT NSS @ GU</a>|<a class='topbar topnav' href=''>CONTACT US</a>|<a class='topbar' href='#'><div class='topnav'>RECENT</div></a>
+				<a class="topbar topnav" href="index.php">HOME</a>|<a class='topbar topnav' href=''>ABOUT NSS @ GU</a>|<a class='topbar topnav' href=''>CONTACT US</a>
 			</div>
 <?php
 			if(isset($_SESSION['uid']))
