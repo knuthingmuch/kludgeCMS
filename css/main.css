@@ -1,15 +1,17 @@
-/* MAIN STYLE */
+/* -----------------------------------------------------TEMPLATE TOP STYLING--------------------------------------------------------------------- */
+
+/* ------------------------------------------------------------------------------------------------------------------------------------ */
 html {overflow-y:scroll;}  /* ??? */
 body {font-size:15px;background-color:#F6F4F0;margin:0px;font-family:verdana,helvetica,arial,sans-serif;}
 
 a:link {text-decoration:none}
-img {border-radius:5px;}
 
 header {width:100%;margin:0px;height:84px;text-align:center;padding:0px;background-color:white;z-index:1000;}
 
 #banner {width:1076px;margin:auto;height:58px;text-align:center;background-color:white;z-index:1000; border:1px solid #aaa;}
+/* ------------------------------------------------------------------------------------------------------------------------------------ */
 
-/* ---------------------------------------------------------------TOP BAR ------------------------------------------------------------ */
+/* -----------------------------------------------------------TOP BAR ----------------------------------------------------------------- */
 #topcontainer {height:24px;margin:0px;padding:0px;background-color:white;width:100%;box-shadow:0 10px 10px #aaa;}
 #topbar {height:20px;margin:0px auto 0px auto;padding:2px 20px 2px 20px;width:1040px;word-spacing:12px;font-size:12px;background-color:white;}
 a.topbar{display:inline-block;color:#195dac;font-weight:bold;}
@@ -17,42 +19,45 @@ a.topbar:hover{color:black;}
 #topbarleft {height:16px;margin:2px;padding:0px;float:left;word-spacing:0;}
 #topbarright {height:16px;margin:2px;padding:0px;float:right;word-spacing:0;}
 .topnav{height:16px;display:inline-block;margin:0px;padding:0px 4px 0px 4px;border-radius:2px;}
-.topnav:hover{background-color:#b9b9b9;}
+.topnav:hover{background-color:#719fd6;}
 #tabs_cont {width:200px; min-height:500px; background-color:#195dac; float:left; padding:4px;padding-bottom:0px; border:1px solid #195dac; border-radius:5px;}
 #logoutbtn:hover {background-color:red;color:white;}
 .tab_btn {width:194px; min-height:20px; max-height:auto; float:left; background-color:white; border:1px solid white; border-radius:5px; text-align:center;padding:2px;margin-bottom:4px;}
-.tab_btn:hover {color:white;background-color:#195dac;}
+.tab_btn:hover {color:white;background-color:#4d8bd6;}
 a.tab_link {font-size:14px;color:#195dac;font-weight:bold;}
 /* ------------------------------------------------------------------------------------------------------------------------------------- */
 
-main {width:1080px; min-height:400px; max-height:auto; margin:0 auto; }
-#main_wrap {width:1070px; min-height:100%; max-height:auto; float:left;background-color:#fff; box-shadow:0 20px 25px #aaa;padding:0px 5px 5px 5px;}
+/* ------------------------------------------------------------------------------------------------------------------------------------ */
+main {width:1080px; min-height:400px; max-height:auto; margin:0 auto; overflow-y:auto; }
+#main_wrap {width:1070px; min-height:100%;float:left;background-color:#fff; box-shadow:0 20px 25px #aaa;padding:0px 5px 5px 5px;overflow-y:auto;}
 
-#content {width:832px;max-height:auto; margin-left:214px; background-color:white; border:2px solid #195dac; border-radius:5px; padding:10px; position:absolute;min-height:1116px;}
+#content {width:832px;max-height:auto; margin-left:214px; background-color:white; border:2px solid #195dac; border-radius:5px; padding:0.45%; position:absolute;min-height:1116px;}
 
 #error {font-size:16px;font-weight:bold;text-align:center;padding-top:50px;}
 
-footer {width:100%;margin:0px;height:30px;text-align:center;padding:0;background-color:white; float:left;}
+footer {width:100%;margin:0px;height:30px;text-align:center;font-size:13px;padding-top:5px;background-color:white;float:right;}
+/* ------------------------------------------------------------------------------------------------------------------------------------ */
 
 /*---------------------------------------------------  POPUPS STYLING ------------------------------------------------------------------ */
 /* .loginbtn {display: inline-block;background: #000;padding: 5px 10px;z-index: 0;color: #fff;} */
 .overlay {z-index: 5;background: rgba(0, 0, 0, .50);display: block;position: fixed;width: 100%;height: 100%;top:0; left:0; right:0;}
-.loginpopup,.searchpopup {height:auto;padding: 10px 10px 10px;background: #fff;z-index: 999;display:none;position:relative;margin:3px;margin-right:3px; float:right; border:2px solid #195dac; border-radius:10px;} 
+.loginpopup,.searchpopup {height:auto;padding: 10px 10px 10px;background: #fff;z-index: 999;display:none;position:relative;margin:3px;margin-right:11px; float:right; border:2px solid #195dac; border-radius:10px;} 
 #loginbutton,#searchbutton {height:auto;width:68px;background-color:#195dac;border:1px solid #195dac;border-radius:5px;}
 .close {text-align:center;font-size:12px;padding:2px 4px 2px 4px;border-radius:3px;}
 .loginbutton,.searchbutton {text-align:center;font-size:12px;}
 #loginbutton:hover,#searchbutton:hover{font-weight:bold;}
 a.close{display:inline-block;color:red;}
 a.close:hover{color:white;font-weight:bold;background-color:red;}
+/* ------------------------------------------------------------------------------------------------------------------------------------ */
 
 /* -------------------------------------------DROPDOWN MENU-------------------------------------------------------- */
 #topbarright .dropdwn {display:inline-block;border-radius:2px;}
 #topbarright .dropdwn ul {padding:1px;background-color:#fff;position: absolute;display: none;z-index:1000;list-style-type:none;border:1px solid #195dac;border-top:0px;border-radius:2px;}
-#topbarright .dropdwn:hover {position: relative;background-color:#b9b9b9;}
+#topbarright .dropdwn:hover {position: relative;background-color:#719fd6;}
 #topbarright .dropdwn:hover .topnav {color:black;}
 #topbarright .dropdwn:hover ul {display: block;top:4px;}
 #topbarright .dropdwn li {display:block;white-space:auto;min-width:82px;padding:1px 0px 1px 0px;font-weight:bold;color:#195dac;}
-#topbarright .dropswn li:hover {background-color:#b9b9b9;border-radius:2px;}
+#topbarright .dropswn li:hover {background-color:#719fd6;border-radius:2px;}
 #topbarright .dropdwn li:hover div {color:black;}
 #topbarright .dropdwn li.dropdwn {border-bottom:1px solid #195dac;}
 /* ----------------------------------------------------------------------------------------------------------------- */

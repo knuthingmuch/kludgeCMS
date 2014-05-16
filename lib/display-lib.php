@@ -51,33 +51,41 @@ function getColgPostList($beginaft,$number,$colgcode)		//eg;(0,3,'sxc') gives la
 
 	if($post)
 	{
+?>
+	<div id='postlist'>
+<?php
 		while($row=mysqli_fetch_array($post))
 		{
 ?>
 		<div class="postlistitem">
-			<div class="postlistitem" id="itemhead">
+			<div class="posttitle">
 		<?php
 				echo $row['title']
 		?>
-				<span class="postlistitem" id="authorname">
+			</div>
+			<span class="authorname">
 		<?php
 				echo $row['fullname']
 		?>
-				</span>
-				<span class="postlistitem" id="posttime">
+			</span>
+			<span class="posttime">
 		<?php
 				echo "$row[postdate] at $row[posttime]"
 		?>
-				</span>
-				</div>
-				<div class="postlistitem">
+			</span>
+			<br/>
+			<div class="postexcerpt">
 		<?php
 				echo excerpt($row['content']);
 		?>
-				</div>
+			</div>
+			<a href="showpost.php?postid=<?php echo $row['postid'] ?>">Read full &#8594; </a>
 		</div>
 <?php
 		}
+?>
+	</div> <!-- postlist -->
+<?php
 	}
 }
 ?>

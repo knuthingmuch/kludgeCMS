@@ -1,0 +1,11 @@
+
+#colginfo {margin:0px;padding:1%;border:1px solid #6ab8d2;border-radius:3px;background-color:#ceedff;}
+
+#colginfo img {border:1px solid black;border-radius:5px;}
+#colginfo p {margin:5px;}
+
+#colgname {font-size:20px;font-weight:bold;text-align:center;overflow:auto;margin:5px 0px 15px 0px;}
+
+#about {height:auto;overflow-y:auto;}
+
+#recent {text-decoration:underline;text-align:center;font-size:16px;font-weight:bold;margin-top:20px;margin-bottom:15px;}

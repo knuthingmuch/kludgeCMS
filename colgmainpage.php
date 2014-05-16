@@ -17,7 +17,9 @@ if(!isset($_GET['colgcode']))		//to avoid undefined variable(?)
 		$PAGETITLE="NSS Goa | ".$result['collegename'];
 		require_once 'markup/template_top.php';
 ?>
-	<link rel="stylesheet" type="text/css" href="css/aboutcolg.css">
+	<link rel="stylesheet" type="text/css" href="css/colgmainpage.css">
+	<link rel="stylesheet" type="text/css" href="css/listposts.css">
+	<div id='colginfo'>
 	<div id='colgname'>
 <?php
 	echo $result['collegename'];
@@ -29,12 +31,11 @@ if(!isset($_GET['colgcode']))		//to avoid undefined variable(?)
 		echo $result['about'];
 ?>
 	</div>
-	
-	<div id='postlist'>
+	</div><!-- colginfo -->
+	<div id='recent'>RECENT POSTS</div>
 <?php
-	getColgPostList(0,3,$_GET['colgcode']);
+	getColgPostList(0,3,$_GET['colgcode']);	//3 most recent posts
 ?>
-	</div>
 
 <?php
 	}
