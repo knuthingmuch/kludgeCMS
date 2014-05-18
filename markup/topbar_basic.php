@@ -4,7 +4,7 @@
 	<div class="dropdwn">
 	<div class='topnav'>MY COLLEGE</div></a>|
 	<ul>
-		<a class="dropdwn" href="listposts.php?colgcode=<?php echo $_SESSION['collegecode'] ?>&page=0"><li><div>ALL POSTS</div></li></a>
+		<a class="dropdwn" href="listposts.php?colgcode=<?php echo $_SESSION['collegecode'] ?>&page=0"><li><div>VIEW POSTS</div></li></a>
 	</ul>
 	</div>
 	<a class='topbar' href=''><div class='topnav'>ACCOUNT</div></a>
