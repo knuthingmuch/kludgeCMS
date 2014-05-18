@@ -14,7 +14,7 @@ if(isset($_SESSION['uid']) and isset($_SESSION['tempauthoruid']) and ($_SESSION[
 	$tags=mysqli_real_escape_string($CONN,$tags);
 	$edittime=str_replace("/"," ",date('d/M/Y'))." at ".date('h:i a');
 	
-	mysqli_query($CONN,"UPDATE posts,postdata SET title='$title',tags='$tags',edittime='$edittime',postdata.content='$postcontent' WHERE posts.postid=postdata.postid and posts.postid='".$_SESSION['temppostid']."';") or systemlog("SQL query error: ".mysql_error());
+	mysqli_query($CONN,"UPDATE posts,postdata SET title='$title',tags='$tags',edittime='$edittime',postdata.content='$postcontent' WHERE posts.postid=postdata.postid and posts.postid='".$_SESSION['temppostid']."';") or systemlog("SQL query error: ".mysqli_error($CONN));
 	
 	db_sysclose($CONN);
 	

@@ -10,7 +10,7 @@ if(!isset($_GET['postid']))
 require_once 'markup/template_top.php';
 
 $CONN = db_sysconnect();
-$result = mysqli_query($CONN,"SELECT * FROM posts,postdata WHERE posts.postid=postdata.postid and posts.postid=".$_GET['postid'].";") or systemlog("SQL query error: ".mysql_error());
+$result = mysqli_query($CONN,"SELECT * FROM posts,postdata WHERE posts.postid=postdata.postid and posts.postid=".$_GET['postid'].";") or systemlog("SQL query error: ".mysqli_error($CONN));
 $post=mysqli_fetch_array($result);
 
 if(isset($_SESSION['uid']) and ($_SESSION['uid']==$post['authoruid'] or isSiteAdmin($_SESSION['uid'])))	//is own post or is siteAdmin

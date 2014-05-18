@@ -9,12 +9,12 @@ if(!isset($_GET['postid']))
 
 <?php
 	$SYSCONN=db_sysconnect();
-	$result=mysqli_query($SYSCONN,"SELECT * FROM posts WHERE postid='".$_GET['postid']."';") or systemlog("SQL query error: ".mysql_error());
+	$result=mysqli_query($SYSCONN,"SELECT * FROM posts WHERE postid='".$_GET['postid']."';") or systemlog("SQL query error: ".mysqli_error($SYSCONN));
 	$postinfo=mysqli_fetch_array($result);
-	$result=mysqli_query($SYSCONN,"SELECT fullname FROM users WHERE uid='".$postinfo['authoruid']."';") or systemlog("SQL query error: ".mysql_error());
+	$result=mysqli_query($SYSCONN,"SELECT fullname FROM users WHERE uid='".$postinfo['authoruid']."';") or systemlog("SQL query error: ".mysqli_error($SYSCONN));
 	$result=mysqli_fetch_array($result);
 	$authorname=$result['fullname'];
-	$result=mysqli_query($SYSCONN,"SELECT content FROM postdata WHERE postid='".$_GET['postid']."';") or systemlog("SQL query error: ".mysql_error());
+	$result=mysqli_query($SYSCONN,"SELECT content FROM postdata WHERE postid='".$_GET['postid']."';") or systemlog("SQL query error: ".mysqli_error($SYSCONN));
 	$result=mysqli_fetch_array($result);
 	$postcontent=$result['content'];
 	db_sysclose($SYSCONN);

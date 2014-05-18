@@ -10,7 +10,7 @@ if(isset($_SESSION['uid'],$_GET['colgcode']) and (isColgAdmin($_SESSION['uid']) 
 	require_once 'markup/template_top.php';
 	
 	$CONN = db_sysconnect();
-	$result = mysqli_query($CONN,"SELECT collegename FROM colleges WHERE collegecode='".$_GET['colgcode']."';") or systemlog("SQL query error: ".mysql_error());
+	$result = mysqli_query($CONN,"SELECT collegename FROM colleges WHERE collegecode='".$_GET['colgcode']."';") or systemlog("SQL query error: ".mysqli_error($CONN));
 	$result=mysqli_fetch_array($result);
 	
 	db_sysclose($CONN);

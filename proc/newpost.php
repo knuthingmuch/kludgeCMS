@@ -14,11 +14,11 @@ if(isset($_SESSION['uid']) and (isColgAdmin($_SESSION['uid']) or isSiteAdmin($_S
 	$tags=mysqli_real_escape_string($CONN,$tags);
 	$posttime=str_replace("/"," ",date('d/M/Y'))." at ".date('h:i a');
 	
-	mysqli_query($CONN,"INSERT INTO posts VALUES (NULL,".$_SESSION['uid'].",'".$_SESSION['tempcolgcode']."','".$title."','".$posttime."','','".$tags."',NULL, NOW())") or systemlog("SQL query error: ".mysql_error()); //and die?? TODO
+	mysqli_query($CONN,"INSERT INTO posts VALUES (NULL,".$_SESSION['uid'].",'".$_SESSION['tempcolgcode']."','".$title."','".$posttime."','','".$tags."',NULL, NOW())") or systemlog("SQL query error: ".mysqli_error($CONN)); //and die?? TODO
 	
 	$postid=mysqli_insert_id($CONN);
 	
-	mysqli_query($CONN,"INSERT INTO postdata VALUES (".$postid.",'".$postdata."')") or systemlog("SQL query error: ".mysql_error()); //and die?? TODO
+	mysqli_query($CONN,"INSERT INTO postdata VALUES (".$postid.",'".$postdata."')") or systemlog("SQL query error: ".mysqli_error($CONN)); //and die?? TODO
 	
 	db_sysclose($CONN);
 	

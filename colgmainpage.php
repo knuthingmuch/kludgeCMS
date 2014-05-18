@@ -8,7 +8,7 @@ if(!isset($_GET['colgcode']))		//to avoid undefined variable(?)
 
 <?php
 	$SYSCONN=db_sysconnect();
-	$result=mysqli_query($SYSCONN,"SELECT collegename,about FROM colleges WHERE collegecode='".$_GET['colgcode']."';") or systemlog("SQL query error: ".mysql_error());	//collegecode is primary, so only 1 returned.
+	$result=mysqli_query($SYSCONN,"SELECT collegename,about FROM colleges WHERE collegecode='".$_GET['colgcode']."';") or systemlog("SQL query error: ".mysqli_error($SYSCONN));	//collegecode is primary, so only 1 returned.
 	$result=mysqli_fetch_array($result);
 	db_sysclose($SYSCONN);
 	

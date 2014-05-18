@@ -59,7 +59,7 @@ require_once 'lib/display-lib.php';
 				<a href='#' class='close'>CLOSE</a>
 			</div>
 			<form action='' method='post'>
-				<p>Quicksearch:<input style='float:right' name='qsterm' type='text' /></p> <!-- quicksearch term -->
+				<p>Search:<input style='float:right' name='qsterm' type='text' /></p> <!-- quicksearch term -->
 				<div class='searchbutton'><input id='searchbutton' type='submit' value='SEARCH'/></div>
 			</form>
 		</div>
