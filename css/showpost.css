@@ -1,10 +1,15 @@
 
 #content {background-color:#ceedff;}
 
-#posthead {font-size:21px;font-weight:bold;text-align:center;overflow:auto;}
+#posthead {font-weight:bold;text-align:center;overflow:auto;}
+#posttitle {font-size:21px;}
 
 #posttime, #authorname {font-size:15px;font-weight:normal;padding:0px 5px 0px 5px;}
 #authorname {float:left;}
 #posttime {float:right;}
+
+div.edit {text-align:right;margin:0px 4px 10px 0px;font-size:14px;}
+span.edit {font-weight:normal;border:1px solid #195dac;border-radius:2px;padding:0px 3px 0px 3px;color:white;background-color:#195dac;}
+span.edit:hover {font-weight:bold;}
 
 #postcontent {margin-top:10px;height:auto;overflow:auto;}

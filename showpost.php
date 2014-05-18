@@ -28,7 +28,13 @@ if(!isset($_GET['postid']))
 	<div id='posthead'>
 <?php	
 	echo "<div id='posttitle'>".$postinfo['title']."</div>";
-	
+	if(isset($_SESSION['uid']) and ($_SESSION['uid']==$postinfo['authoruid'] or isSiteAdmin($_SESSION['uid'])))
+	{
+?>
+	<div class='edit'><a href='editpost.php?postid=<?php echo $postinfo['postid']; ?>'><span class='edit'>EDIT</span></a>
+	</div>
+<?php
+	}
 	echo "<span id='authorname'> ".$authorname." </span><span id='posttime'> ".$postinfo['posttime']." </span>";
 ?>
 	</div>

@@ -16,6 +16,7 @@ if(isset($_GET['colgcode']) and isset($_GET['page']))
 	db_sysclose($SYSCONN);
 ?>
 	<div id="collegename"><?php echo $result['collegename']; ?></div>
+	<span id='page'>Page: <?php echo $_GET['page']+1 ?></span>
 
 <?php
 	$beginaft=$perpage*$_GET['page'];

@@ -1,6 +1,8 @@
 
 #collegename {display:block;font-size:20px;font-weight:bold;text-align:center;overflow:auto;margin:5px 0px 15px 0px;}
 
+#page {font-weight:bold;}
+
 #postlist {display:block;height:auto;} 
 
 .postlistitem {margin-top:10px;padding:10px 4px 10px 4px;border:1px solid #6ab8d2;background-color:#ceedff;border-radius:3px;}
