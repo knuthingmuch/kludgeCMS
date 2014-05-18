@@ -1,6 +1,8 @@
 
 #note {font-size:13px;}
 
+#edittitle {font-size:16px;font-weight:bold;}
+
 #submitbutton {height:30px;width:70px;background-color:#195dac;border:1px solid #195dac;border-radius:5px;font-weight:normal;}
 #submitbutton:hover {font-weight:bold;}
 .submitbutton {text-align:center;}
