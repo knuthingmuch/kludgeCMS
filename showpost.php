@@ -29,7 +29,7 @@ if(!isset($_GET['postid']))
 <?php	
 	echo "<div id='posttitle'>".$postinfo['title']."</div>";
 	
-	echo "<span id='authorname'> ".$authorname." </span><span id='posttime'> ".$postinfo['postdate']." at ".$postinfo['posttime']." </span>";
+	echo "<span id='authorname'> ".$authorname." </span><span id='posttime'> ".$postinfo['posttime']." </span>";
 ?>
 	</div>
 

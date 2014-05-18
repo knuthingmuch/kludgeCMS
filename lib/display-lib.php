@@ -70,7 +70,7 @@ function getColgPostList($beginaft,$number,$colgcode)		//eg;(0,3,'sxc') gives la
 			</span>
 			<span class="posttime">
 		<?php
-				echo "$row[postdate] at $row[posttime]"
+				echo $row['posttime'];
 		?>
 			</span>
 			<br/>

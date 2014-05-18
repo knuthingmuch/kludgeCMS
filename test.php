@@ -1,4 +1,3 @@
- 
 <?php
 $pos=strpos("Helloworld","woqrld");
 if($pos)
