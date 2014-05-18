@@ -24,6 +24,8 @@ if(isset($_SESSION['uid'],$_GET['colgcode']) and (isColgAdmin($_SESSION['uid']) 
 		<form action="proc/newpost.php" method="post">
 		Title: <input type="text" name="posttitle" style="min-width:760px;" placeholder="Post title">
 		<br/><br/>
+		<span id="note">Note: It is highly recommended that you demarcate the intro by using the 'insert more break' button(top, extreme right), so that only the section before the break is shown when list of posts is displayed.</span>
+		<br/><br/>
 		<textarea name='postdata' id='postdata'>  
 		</textarea>
 		<div style="float:right;font-size:12px;">Drag to resize editor.&#8593;</div>
@@ -31,7 +33,7 @@ if(isset($_SESSION['uid'],$_GET['colgcode']) and (isColgAdmin($_SESSION['uid']) 
 			CKEDITOR.replace( 'postdata' );
 		</script>
 		<br/><br/>
-		Tags: <input type="text" name="tags" style="min-width:760px;" placeholder="separate tags with commas(e.g. rally,panaji)">
+		Tags(optional): <input type="text" name="tags" style="min-width:695px;" placeholder="separate tags with commas(e.g. rally,panaji)">
 		<br/><br/>
 		<div class='submitbutton'><input id='submitbutton' type='submit' value='POST'></div>
 		</form>

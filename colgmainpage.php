@@ -8,7 +8,7 @@ if(!isset($_GET['colgcode']))		//to avoid undefined variable(?)
 
 <?php
 	$SYSCONN=db_sysconnect();
-	$result=mysqli_query($SYSCONN,"SELECT collegename,about FROM colleges WHERE collegecode='".$_GET['colgcode']."';") or systemlog("SQL query error: ".mysql_error());
+	$result=mysqli_query($SYSCONN,"SELECT collegename,about FROM colleges WHERE collegecode='".$_GET['colgcode']."';") or systemlog("SQL query error: ".mysql_error());	//collegecode is primary, so only 1 returned.
 	$result=mysqli_fetch_array($result);
 	db_sysclose($SYSCONN);
 	
@@ -18,7 +18,7 @@ if(!isset($_GET['colgcode']))		//to avoid undefined variable(?)
 		require_once 'markup/template_top.php';
 ?>
 	<link rel="stylesheet" type="text/css" href="css/colgmainpage.css">
-	<link rel="stylesheet" type="text/css" href="css/postslist.css">
+	<link rel="stylesheet" type="text/css" href="css/listposts.css">
 	<div id='colginfo'>
 	<div id='colgname'>
 <?php
@@ -33,6 +33,7 @@ if(!isset($_GET['colgcode']))		//to avoid undefined variable(?)
 	</div>
 	</div><!-- colginfo -->
 	<div id='recent'>RECENT POSTS</div>
+	<div class="more"><a id="more" href="listposts.php?colgcode=<?php echo $_GET['colgcode']; ?>&page=0">SHOW ALL POSTS</a></div>
 <?php
 	getColgPostList(0,3,$_GET['colgcode']);	//3 most recent posts
 ?>

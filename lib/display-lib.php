@@ -24,7 +24,7 @@ function show_tab_btn()			//generate once and OP to file. -->>PERFORMANCE TODO
 	$result = mysqli_query($CONN,"SELECT collegename,collegecode FROM colleges ORDER BY collegenum;") or systemlog("SQL query error: ".mysql_error());	//and die?? TODO
 	db_sysclose($CONN);
 	
-	if($result)
+	if(mysqli_num_rows($result)!=0)
 	{
 		while($row = mysqli_fetch_array($result))
 		{
@@ -33,7 +33,7 @@ function show_tab_btn()			//generate once and OP to file. -->>PERFORMANCE TODO
 	}
 }
 
-function excerpt($content)
+function excerpt($content)		//Auxillary display function. //gets excerpt; based on presence of <!-- more --> tag.(CKEDITOR wpmore extension)
 {
 	$pos=strpos($content,"<!--more-->");
 	if($pos)
@@ -49,7 +49,7 @@ function getColgPostList($beginaft,$number,$colgcode)		//eg;(0,3,'sxc') gives la
 
 	db_sysclose($CONN);
 
-	if($post)
+	if(mysqli_num_rows($post)!=0)
 	{
 ?>
 	<div id='postlist'>
@@ -65,7 +65,7 @@ function getColgPostList($beginaft,$number,$colgcode)		//eg;(0,3,'sxc') gives la
 			</div>
 			<span class="authorname">
 		<?php
-				echo $row['fullname']
+				echo "Author: ".$row['fullname']
 		?>
 			</span>
 			<span class="posttime">
@@ -79,7 +79,7 @@ function getColgPostList($beginaft,$number,$colgcode)		//eg;(0,3,'sxc') gives la
 				echo excerpt($row['content']);
 		?>
 			</div>
-			<a href="showpost.php?postid=<?php echo $row['postid'] ?>">Read full &#8594; </a>
+			<a href="showpost.php?postid=<?php echo $row['postid']; ?>">Read full &#8594; </a>
 		</div>
 <?php
 		}
@@ -87,5 +87,24 @@ function getColgPostList($beginaft,$number,$colgcode)		//eg;(0,3,'sxc') gives la
 	</div> <!-- postlist -->
 <?php
 	}
+	else
+	{
+?>
+	<div class="postlistitem">
+	No posts found.
+	</div>
+<?php
+	}
+}
+
+function totalPosts($collegecode)	//Auxillary display function. //return total number of posts made by a college.
+{
+	$CONN=db_sysconnect();
+	$result = mysqli_query($CONN,"SELECT COUNT(*) as count FROM posts WHERE collegecode='".$collegecode."';") or systemlog("SQL query error: ".mysql_error());	//and die?? TODO
+	db_sysclose($CONN);
+	
+	$result=mysqli_fetch_array($result);
+	
+	return $result['count'];
 }
 ?>

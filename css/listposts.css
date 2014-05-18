@@ -1,0 +1,15 @@
+
+#collegename {display:block;font-size:20px;font-weight:bold;text-align:center;overflow:auto;margin:5px 0px 15px 0px;}
+
+#postlist {display:block;height:auto;} 
+
+.postlistitem {margin-top:10px;padding:10px 4px 10px 4px;border:1px solid #6ab8d2;background-color:#ceedff;border-radius:3px;}
+
+.posttitle {font-size:18px;font-weight:bold;margin-bottom:5px;}
+.authorname {float:left;margin-left:5%;}
+.posttime {float:right;margin-right:5%;}
+.postexcerpt {margin:10px;margin-bottom:5px;}
+
+nav#pages {font-weight:bold;margin-top:10px;display:block;border:2px solid black;border-radius:2px;color:#195dac;}
+nav#pages a {font-weight:normal;color:white;display:inline-block;background-color:#195dac;margin:4px;padding:0px 3px 0px 3px;border-radius:2px;}
+nav#pages a:hover {font-weight:bold;}
