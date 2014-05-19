@@ -21,7 +21,7 @@ function getUserTopbar($uid)	//only used in template, may be merged.
 function show_tab_btn()			//generate once and OP to file. -->>PERFORMANCE TODO
 {
 	$CONN=db_sysconnect();
-	$result = mysqli_query($CONN,"SELECT collegename,collegecode FROM colleges ORDER BY collegenum;") or systemlog("SQL query error: ".mysqli_error($CONN));	//and die?? TODO
+	$result = mysqli_query($CONN,"SELECT collegename,collegecode FROM colleges ORDER BY collegenum;") or systemlog($_SERVER['PHP_SELF']."  SQL query error: ".mysqli_error($CONN));	//and die?? TODO
 	db_sysclose($CONN);
 	
 	if(mysqli_num_rows($result)!=0)
@@ -45,7 +45,7 @@ function getColgPostList($beginaft,$number,$colgcode)		//eg;(0,3,'sxc') gives la
 {
 	$CONN=db_sysconnect();
 
-	$post= mysqli_query($CONN,"SELECT * FROM posts,users,postdata WHERE posts.postid=postdata.postid and posts.authoruid=users.uid and posts.collegecode='$colgcode' ORDER BY pdatetime LIMIT $beginaft,$number;") or systemlog("SQL query error: ".mysqli_error($CONN));	//and die?? TODO
+	$post= mysqli_query($CONN,"SELECT * FROM posts,users,postdata WHERE posts.postid=postdata.postid and posts.authoruid=users.uid and posts.collegecode='$colgcode' ORDER BY pdatetime LIMIT $beginaft,$number;") or systemlog($_SERVER['PHP_SELF']."  SQL query error: ".mysqli_error($CONN));	//and die?? TODO
 
 	db_sysclose($CONN);
 
@@ -100,7 +100,7 @@ function getColgPostList($beginaft,$number,$colgcode)		//eg;(0,3,'sxc') gives la
 function totalPosts($collegecode)	//Auxillary display function. //return total number of posts made by a college.
 {
 	$CONN=db_sysconnect();
-	$result = mysqli_query($CONN,"SELECT COUNT(*) as count FROM posts WHERE collegecode='".$collegecode."';") or systemlog("SQL query error: ".mysqli_error($CONN));	//and die?? TODO
+	$result = mysqli_query($CONN,"SELECT COUNT(*) as count FROM posts WHERE collegecode='".$collegecode."';") or systemlog($_SERVER['PHP_SELF']."  SQL query error: ".mysqli_error($CONN));	//and die?? TODO
 	db_sysclose($CONN);
 	
 	$result=mysqli_fetch_array($result);

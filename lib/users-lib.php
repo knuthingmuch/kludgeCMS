@@ -6,7 +6,7 @@ function isSiteAdmin($uid)	//isASiteAdmin???
 {
 	$CONN=db_sysconnect();
 	
-	$result = mysqli_query($CONN,"SELECT utype FROM users WHERE uid=$uid") or systemlog("SQL query error: ".mysqli_error($CONN));
+	$result = mysqli_query($CONN,"SELECT utype FROM users WHERE uid=$uid") or systemlog($_SERVER['PHP_SELF']."  SQL query error: ".mysqli_error($CONN));
 	db_sysclose($CONN);
 	
 	if ($result)
@@ -33,7 +33,7 @@ function isColgAdmin($uid)
 {
 	$CONN=db_sysconnect();
 	
-	$result = mysqli_query($CONN,"SELECT utype FROM users WHERE uid=$uid") or systemlog("SQL query error: ".mysqli_error($CONN));
+	$result = mysqli_query($CONN,"SELECT utype FROM users WHERE uid=$uid") or systemlog($_SERVER['PHP_SELF']."  SQL query error: ".mysqli_error($CONN));
 	db_sysclose($CONN);
 	
 	if ($result)
@@ -60,9 +60,10 @@ function login($uname,$passwd)
 {
 	$CONN=db_sysconnect();
 	
+	$uname=mysqli_real_escape_string($CONN,$uname);		//has no effect on valid uname type i.e. [A-Za-z0-9_]
 	$passwd_hash = hash('sha256', $passwd);
 	
-	$result = mysqli_query($CONN,"SELECT uid,uname,utype,fullname,passwd_hash,collegecode FROM users WHERE uname='$uname';") or systemlog("SQL query error: ".mysqli_error($CONN));
+	$result = mysqli_query($CONN,"SELECT uid,uname,utype,fullname,passwd_hash,collegecode FROM users WHERE uname='$uname';") or systemlog($_SERVER['PHP_SELF']."  SQL query error: ".mysqli_error($CONN));
 
 	db_sysclose($CONN);
 	
