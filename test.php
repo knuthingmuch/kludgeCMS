@@ -6,13 +6,16 @@ if($pos)
 echo str_replace("/"," ",date('d/M/Y'));
 echo " at ".date('h:i a')."\n";
 echo htmlspecialchars("fzgfdgAKDKJCBH239049857_",ENT_QUOTES);
-?>
-<form action="test.php" method ="post">
-<input type="text" name="test">
-<input type="submit" value="go">
-</form>
 
-<?php
-if(isset($_POST['test']))
-	echo $_POST['test'];
+require_once 'lib/mysql-lib.php';
+
+$CONN=db_sysconnect();
+$result = mysqli_query($CONN,"SELECT collegecode FROM colleges;");
+db_sysclose($CONN);
+
+while($row=mysqli_fetch_array($result))
+{
+	echo $row['collegecode']." ";
+}
+
 ?>

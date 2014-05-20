@@ -22,7 +22,7 @@ $_CONFIG = array(
 // GENERAL SETTINGS
 
     'disabled' => true,
-    'uploadURL' => "../../uploads",
+    'uploadURL' => "../../uploads", //default, each colg has own dir.
     'uploadDir' => "",
     'theme' => "default",
 

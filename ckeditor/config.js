@@ -7,13 +7,15 @@ CKEDITOR.editorConfig = function( config ) {
 	// Define changes to default configuration here.
 	// For complete reference see:
 	// http://docs.ckeditor.com/#!/api/CKEDITOR.config
-	
+// --------------------------------------------------------------USER-------------------------------------------------------------
+
 	CKEDITOR.config.filebrowserBrowseUrl = 'ckeditor/kcfinder/browse.php?opener=ckeditor&type=files';
 	CKEDITOR.config.filebrowserImageBrowseUrl = 'ckeditor/kcfinder/browse.php?opener=ckeditor&type=images';
 	CKEDITOR.config.filebrowserFlashBrowseUrl = 'ckeditor/kcfinder/browse.php?opener=ckeditor&type=flash';
 	CKEDITOR.config.filebrowserUploadUrl = 'ckeditor/kcfinder/upload.php?opener=ckeditor&type=files';
 	CKEDITOR.config.filebrowserImageUploadUrl = 'ckeditor/kcfinder/upload.php?opener=ckeditor&type=images';
 	CKEDITOR.config.filebrowserFlashUploadUrl = 'ckeditor/kcfinder/upload.php?opener=ckeditor&type=flash';
+// -------------------------------------------------------------------------------------------------------------------------------
 
 	// The toolbar groups arrangement, optimized for two toolbar rows.
 	config.toolbarGroups = [
@@ -43,7 +45,7 @@ CKEDITOR.editorConfig = function( config ) {
 	// Simplify the dialog windows.
 	config.removeDialogTabs = 'image:advanced;link:advanced';
 	
-// -------------------------------------------------------------------------------------------------------------------------------
+// ----------------------------------------------------------USER-----------------------------------------------------------------
 
 	CKEDITOR.config.extraPlugins = 'wpmore'; // Add 'WPMore' plugin - must be in plugins folder
 
@@ -56,5 +58,6 @@ CKEDITOR.editorConfig = function( config ) {
 	CKEDITOR.config.forcePasteAsPlainText = true;
 	CKEDITOR.config.pasteFromWordRemoveFontStyles = true;
 	CKEDITOR.config.pasteFromWordRemoveStyles = true;
-	
+// -------------------------------------------------------------------------------------------------------------------------------
+
 };
