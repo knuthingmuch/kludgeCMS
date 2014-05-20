@@ -5,3 +5,6 @@ MUST DO:
 	REGISTRATION FORM VALIDATION.(uname:[A-Za-z0-9_]) (fullname:[A-Za-z]) (utype check for user side foo)
 	COMPREHENSIVE ERROR LOGGING.
 	LICENSING.
+	
+INSTRUCTIONS:
+	On adding new college create collegecode named directory in uploads.
