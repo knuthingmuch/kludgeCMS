@@ -7,6 +7,13 @@ CKEDITOR.editorConfig = function( config ) {
 	// Define changes to default configuration here.
 	// For complete reference see:
 	// http://docs.ckeditor.com/#!/api/CKEDITOR.config
+	
+	CKEDITOR.config.filebrowserBrowseUrl = 'ckeditor/kcfinder/browse.php?opener=ckeditor&type=files';
+	CKEDITOR.config.filebrowserImageBrowseUrl = 'ckeditor/kcfinder/browse.php?opener=ckeditor&type=images';
+	CKEDITOR.config.filebrowserFlashBrowseUrl = 'ckeditor/kcfinder/browse.php?opener=ckeditor&type=flash';
+	CKEDITOR.config.filebrowserUploadUrl = 'ckeditor/kcfinder/upload.php?opener=ckeditor&type=files';
+	CKEDITOR.config.filebrowserImageUploadUrl = 'ckeditor/kcfinder/upload.php?opener=ckeditor&type=images';
+	CKEDITOR.config.filebrowserFlashUploadUrl = 'ckeditor/kcfinder/upload.php?opener=ckeditor&type=flash';
 
 	// The toolbar groups arrangement, optimized for two toolbar rows.
 	config.toolbarGroups = [
@@ -36,16 +43,18 @@ CKEDITOR.editorConfig = function( config ) {
 	// Simplify the dialog windows.
 	config.removeDialogTabs = 'image:advanced;link:advanced';
 	
-	      CKEDITOR.config.extraPlugins = 'wpmore'; // Add 'WPMore' plugin - must be in plugins folder
+// -------------------------------------------------------------------------------------------------------------------------------
 
-      // Use <br> as break and not enclose text in <p> when pressing <Enter> or <Shift+Enter>
-      CKEDITOR.config.enterMode = CKEDITOR.ENTER_BR;
-      CKEDITOR.config.shiftEnterMode = CKEDITOR.ENTER_BR;
-      CKEDITOR.config.fillEmptyBlocks = false;    // Prevent filler nodes in all empty blocks
+	CKEDITOR.config.extraPlugins = 'wpmore'; // Add 'WPMore' plugin - must be in plugins folder
 
-      // Remove all formatting when pasting text copied from websites or Microsoft Word
-      CKEDITOR.config.forcePasteAsPlainText = true;
-      CKEDITOR.config.pasteFromWordRemoveFontStyles = true;
-      CKEDITOR.config.pasteFromWordRemoveStyles = true;
+	// Use <br> as break and not enclose text in <p> when pressing <Enter> or <Shift+Enter>
+// 	CKEDITOR.config.enterMode = CKEDITOR.ENTER_BR;
+// 	CKEDITOR.config.shiftEnterMode = CKEDITOR.ENTER_BR;
+// 	CKEDITOR.config.fillEmptyBlocks = false;    // Prevent filler nodes in all empty blocks
+
+	// Remove all formatting when pasting text copied from websites or Microsoft Word
+	CKEDITOR.config.forcePasteAsPlainText = true;
+	CKEDITOR.config.pasteFromWordRemoveFontStyles = true;
+	CKEDITOR.config.pasteFromWordRemoveStyles = true;
 	
 };

@@ -2,7 +2,7 @@
 require_once 'mysql-lib.php';
 require_once 'system-lib.php';
 
-function isSiteAdmin($uid)	//isASiteAdmin???
+function isSiteAdmin($uid)
 {
 	$CONN=db_sysconnect();
 	
@@ -79,6 +79,8 @@ function login($uname,$passwd)
 			$_SESSION['utype']=$row['utype'];
 			$_SESSION['fullname']=$row['fullname'];
 			$_SESSION['collegecode']=$row['collegecode'];
+			if($_SESSION['utype']=='CADMIN' or $_SESSION['utype']=='SADMIN')	//is user is colg or site admin enable file upload.
+				$_SESSION['KCFINDER']['disabled']=false;
 			return true;
 		}
 		else
@@ -87,4 +89,5 @@ function login($uname,$passwd)
 	else
 		return false;
 }
+
 ?>

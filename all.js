@@ -17,11 +17,6 @@ $(document).ready(function() {
 		$(".searchpopup").show();;
     });
 
-// 	$(".tab_link").click(function(e) {	//bad move:remove
-// 		e.preventDefault();
-// 		$("#content").load("colgmainpage.php?colgcode="+this.id+" #test");
-//     });
-	
 // 	ALL CKEDITOR STUFF HERE:
 // 	$( 'textarea#postdata' ).ckeditor();
 // 	$( 'textarea#aboutdata' ).ckeditor();

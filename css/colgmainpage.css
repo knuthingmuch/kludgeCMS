@@ -11,5 +11,5 @@
 #recent {text-decoration:underline;text-align:center;font-size:16px;font-weight:bold;margin-top:20px;margin-bottom:5px;}
 
 .more {display:block;text-align:right;padding-right:0px;}
-#more {font-size:13px;font-weight:bold;color:#195dac;border:1px solid #195dac;border-radius:2px;padding:0px 3px 0px 3px;}
-#more:hover {color:white;background-color:#195dac;}
+#more {font-size:13px;font-weight:normal;color:white;border:1px solid #195dac;border-radius:2px;padding:0px 3px 0px 3px;background-color:#195dac;}
+#more:hover {color:white;font-weight:bold;}

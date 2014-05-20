@@ -1,5 +1,7 @@
 NO session_start() in markup whatsoever. All user interface pages should have session_start(), same goes for proccessing pages(except those using login()).
 
 MUST DO:
-	CHECK SIZES OF ALL DATATYPES BEFORE HOSTING.
-	SANITIZE USER INPUT FOR LOGIN FORM.(username:[Aa0-Zz9]+_)
+	CHECK SIZES OF ALL DATATYPES BEFORE GOING INTO PRODUCTION.
+	REGISTRATION FORM VALIDATION.(uname:[A-Za-z0-9_]) (fullname:[A-Za-z]) (utype check for user side foo)
+	COMPREHENSIVE ERROR LOGGING.
+	LICENSING.
