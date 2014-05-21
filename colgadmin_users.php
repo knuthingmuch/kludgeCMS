@@ -34,6 +34,8 @@ if(isset($_GET['colgcode']))
 	}
 ?>
 	<br/>
+	<a href="colgadmin_users.php?colgcode=<?php echo $_GET['colgcode']; ?>">REFRESH</a>
+	<br/>
 	<span>Note: These changes won't take effect until the specified user logs out.</span>
 	<br/>
 	<hr/>

@@ -44,6 +44,26 @@ if(userIsColgAdmin())
 	db_sysclose($CONN);
 	header('location: ../colgadmin_users.php?colgcode='.$_SESSION['collegecode'].'&msgcode='.$msgcode);
 }
+else if(userIsSiteAdmin())
+{
+	$CONN = db_sysconnect();
+	
+	if(isset($_POST['setuname']) and isset($_POST['colgcode']))
+	{
+		//no mysqli escape str for siteAdmin.
+		$result = mysqli_query($CONN,"SELECT collegecode FROM users WHERE uname='".$_POST['setuname']."';") or systemlog($_SERVER['PHP_SELF']."  SQL query error: ".mysqli_error($CONN));
+		$row = mysqli_fetch_array($result);
+		if($row['collegecode']==$_POST['colgcode'])
+		{
+			mysqli_query($CONN,"UPDATE users SET utype='CADMIN' WHERE uname='".$_POST['setuname']."';") or systemlog($_SERVER['PHP_SELF']."  SQL query error: ".mysqli_error($CONN));
+			$msgcode=11;
+		}
+		else
+			$msgcode=12;
+	}
+	header('location: ../siteadmin_users.php?msgcode='.$msgcode);
+	db_sysclose($CONN);
+}
 else
 	header('location: '.$_SERVER['HTTP_REFERER']) or header('location: ../index.php');
 ?>
