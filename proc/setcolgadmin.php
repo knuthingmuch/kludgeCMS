@@ -51,9 +51,9 @@ else if(userIsSiteAdmin())
 	if(isset($_POST['setuname']) and isset($_POST['colgcode']))
 	{
 		//no mysqli escape str for siteAdmin.
-		$result = mysqli_query($CONN,"SELECT collegecode FROM users WHERE uname='".$_POST['setuname']."';") or systemlog($_SERVER['PHP_SELF']."  SQL query error: ".mysqli_error($CONN));
+		$result = mysqli_query($CONN,"SELECT uid,collegecode FROM users WHERE uname='".$_POST['setuname']."';") or systemlog($_SERVER['PHP_SELF']."  SQL query error: ".mysqli_error($CONN));
 		$row = mysqli_fetch_array($result);
-		if($row['collegecode']==$_POST['colgcode'])
+		if($row['collegecode']==$_POST['colgcode'] and !isSiteAdmin($row['uid']))	//user should exist and belong to college, and not be site admin.
 		{
 			mysqli_query($CONN,"UPDATE users SET utype='CADMIN' WHERE uname='".$_POST['setuname']."';") or systemlog($_SERVER['PHP_SELF']."  SQL query error: ".mysqli_error($CONN));
 			$msgcode=11;
