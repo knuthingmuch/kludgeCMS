@@ -57,8 +57,8 @@ a.close:hover{color:white;font-weight:bold;background-color:red;}
 #topbarright .dropdwn:hover {position: relative;background-color:#719fd6;}
 #topbarright .dropdwn:hover .topnav {color:black;}
 #topbarright .dropdwn:hover ul {display: block;top:4px;}
-#topbarright .dropdwn li {display:block;white-space:auto;min-width:82px;padding:1px 0px 1px 0px;font-weight:bold;color:#195dac;}
-#topbarright .dropswn li:hover {background-color:#719fd6;border-radius:2px;}
+#topbarright .dropdwn li {display:block;white-space:auto;min-width:82px;padding:1px 0px 1px 0px;font-weight:bold;color:#195dac;border-radius:0px;}
+#topbarright .dropswn li:hover {background-color:#719fd6;}
 #topbarright .dropdwn li:hover div {color:black;}
 #topbarright .dropdwn li.dropdwn {border-bottom:1px solid #195dac;}
 /* ----------------------------------------------------------------------------------------------------------------- */

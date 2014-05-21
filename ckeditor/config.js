@@ -14,7 +14,7 @@ CKEDITOR.editorConfig = function( config ) {
 	CKEDITOR.config.filebrowserFlashBrowseUrl = 'ckeditor/kcfinder/browse.php?opener=ckeditor&type=flash';
 	CKEDITOR.config.filebrowserUploadUrl = 'ckeditor/kcfinder/upload.php?opener=ckeditor&type=files';
 	CKEDITOR.config.filebrowserImageUploadUrl = 'ckeditor/kcfinder/upload.php?opener=ckeditor&type=images';
-	CKEDITOR.config.filebrowserFlashUploadUrl = 'ckeditor/kcfinder/upload.php?opener=ckeditor&type=flash';
+	CKEDITOR.config.filebrowserFlashUploadUrl = 'ckeditor/kcfinder/upload.php?opener=ckeditor&type=flash';	
 // -------------------------------------------------------------------------------------------------------------------------------
 
 	// The toolbar groups arrangement, optimized for two toolbar rows.
@@ -46,6 +46,8 @@ CKEDITOR.editorConfig = function( config ) {
 	config.removeDialogTabs = 'image:advanced;link:advanced';
 	
 // ----------------------------------------------------------USER-----------------------------------------------------------------
+	
+	CKEDITOR.config.height = '360px';
 
 	CKEDITOR.config.extraPlugins = 'wpmore'; // Add 'WPMore' plugin - must be in plugins folder
 

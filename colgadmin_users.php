@@ -1,16 +1,17 @@
 <?php
-$PAGETITLE="NSS Goa | Set Administrator";
+$PAGETITLE="NSS Goa | User Management";
 session_start();
-require_once 'markup/template_top.php';
 
 if(isset($_GET['colgcode']))
 {
+	require_once 'markup/template_top.php';
 	if(userIsColgAdmin() and $_GET['colgcode']==$_SESSION['collegecode'])
 	{
 ?>
+	<div>User Management: <?php echo $_SESSION['collegecode'] ?></div>
 	<span>All college admins may post under their own college sections but cannot edit each others posts.</span>
 	<br/><br/>
-	<form action="proc/colgadminset.php" method="post">
+	<form action="proc/setcolgadmin.php" method="post">
 	<span>Set the following user as your college co-administrator.</span>
 	<br/>
 	Username: <input type="text" name="setuname">
@@ -19,7 +20,7 @@ if(isset($_GET['colgcode']))
 	<hr/>
 	<span>Remove the following user as your college co-administrator.</span>
 	<br/>
-	<form action="proc/colgadminset.php" method="post">
+	<form action="proc/setcolgadmin.php" method="post">
 	Username: <input type="text" name="removeuname">
 	<input type="submit" value="Unset">
 	</form>
@@ -66,13 +67,15 @@ if(isset($_GET['colgcode']))
 	}
 	else
 	{
-	?>
+?>
 		<div id="error">
 		You do not have the priviledges required to access this page or requested resource does not exist.
 		</div>
 <?php
 	}
 }
+else
+	header('location: '.$_SERVER['HTTP_REFERER']) or header('location: ../index.php'); //TODO
 
 require_once 'markup/template_botm.php';
 ?>
