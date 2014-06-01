@@ -10,17 +10,17 @@ if(isset($_SESSION['uid']))
 	<h2> Account Settings </h2>
 	<h3>Change password.</h3>
 	<form action="proc/setpasswd.php" method="post">
-	Current password:<input type="password" name="currentpass">	<?php if(isset($_GET['msgcode']) and $_GET['msgcode']==1) echo "Wrong password."; ?>
+	Current password:<input type="password" name="currentpass"><?php if(isset($_SESSION['temp_wrongpass'])) { echo "Wrong password.";unset($_SESSION['temp_wrongpass']); } ?>
 	<br/>
-	New password:<input type="password" name="newpass1">	<?php if(isset($_GET['msgcode']) and $_GET['msgcode']==3) echo "Password should be at least $MIN_PASSWD_LEN characters long."; ?>
+	New password:<input type="password" name="newpass1"><?php if(isset($_SESSION['temp_minlen'])) { echo "Password should be at least $MIN_PASSWD_LEN characters long.";unset($_SESSION['temp_minlen']); } ?>
 	<br/>
-	Retype new password:<input type="password" name="newpass2">	<?php if(isset($_GET['msgcode']) and $_GET['msgcode']==2) echo "Passwords do not match."; ?>
+	Retype new password:<input type="password" name="newpass2"><?php if(isset($_SESSION['temp_nomatch'])) { echo "Passwords do not match.";unset($_SESSION['temp_nomatch']); } ?>
 	<br/>
 	<input type="submit" value="Change">
 	</form>
 	<a href="accountinfo.php">REFRESH</a>
 	<br/>
-	<?php if(isset($_GET['msgcode']) and $_GET['msgcode']==0) echo "Password successfully changed."; ?>
+	<?php if(isset($_SESSION['temp_success'])) { echo "Password successfully changed.";unset($_SESSION['temp_success']); } ?>
 
 <?php
 }

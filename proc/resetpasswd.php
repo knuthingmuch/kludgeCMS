@@ -17,15 +17,15 @@ if(userIsColgAdmin() and isset($_POST['resetuname']))
 		if($row['collegecode']==$_SESSION['collegecode'] and !isSiteAdmin($row['uid']))	//user should exist and belong to same college,not be self, and not be site admin.
 		{
 			mysqli_query($CONN,"UPDATE users SET passwd_hash='$random_hash' WHERE uid='".$row['uid']."';") or systemlog($_SERVER['PHP_SELF']."  SQL query error: ".mysqli_error($CONN));
-			$msgcode=90;	//success
+			$_SESSION['temp_reset_passwd']=$random_str;	//SUCCESS;
 		}
 		else
-			$msgcode=91;	//invalid username
+			$_SESSION['temp_reset_invalid']=1;	//invalid username
 		db_sysclose($CONN);
 	}
 	else
-		$msgcode=93;	//can't reset own.
-	header('location: ../colgadmin_users.php?colgcode='.$_SESSION['collegecode'].'&msgcode='.$msgcode.'&p='.$random_str);	//IMPLEMENT A SECURE WAY TO SEND PASSWD, use GET for now. TODO
+		$_SESSION['temp_reset_isown']=1;	//can't reset own.
+	header('location: ../colgadmin_users.php?colgcode='.$_SESSION['collegecode']);	//IMPLEMENT A SECURE WAY TO SEND PASSWD, use GET for now. TODO
 }
 else if(userIsSiteAdmin() and isset($_POST['resetuname']))
 {
@@ -38,15 +38,15 @@ else if(userIsSiteAdmin() and isset($_POST['resetuname']))
 		{
 			$row = mysqli_fetch_array($result);
 			mysqli_query($CONN,"UPDATE users SET passwd_hash='$random_hash' WHERE uid='".$row['uid']."';") or systemlog($_SERVER['PHP_SELF']."  SQL query error: ".mysqli_error($CONN));
-			$msgcode=90;	//success
+			$_SESSION['temp_reset_passwd']=$random_str;	//SUCCESS
 		}
 		else
-			$msgcode=91;	//invalid username
+			$_SESSION['temp_reset_invalid']=1;	//invalid username
 		db_sysclose($CONN);
 	}
 	else
-		$msgcode=93;	//can't reset own.
-	header('location: ../siteadmin_users.php?msgcode='.$msgcode.'&p='.$random_str);	//IMPLEMENT A SECURE WAY TO SEND PASSWD, use GET for now. TODO
+		$_SESSION['temp_reset_isown']=1;	//can't reset own.
+	header('location: ../siteadmin_users.php');	//IMPLEMENT A SECURE WAY TO SEND PASSWD, use GET for now. TODO
 }
 else
 	header('location: '.$_SERVER['HTTP_REFERER']) or header('location: index.php');

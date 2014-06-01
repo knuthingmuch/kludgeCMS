@@ -30,7 +30,7 @@ require_once 'lib/display-lib.php';
 	<div id="topcontainer">
 		<div id="topbar">
 			<div id="topbarleft">
-				<a class="topbar topnav" href="index.php">HOME</a>|<a class='topbar topnav' href='about.php'>ABOUT NSS @ GU</a>|<a class='topbar topnav' href=''>CONTACT US</a>
+				<a class="topbar topnav" href="index.php">HOME</a>|<a class='topbar topnav' href='about.php'>ABOUT NSS @ GU</a>|<a class='topbar topnav' href='contactus.php'>CONTACT US</a>
 			</div>
 <?php
 			if(isset($_SESSION['uid']))

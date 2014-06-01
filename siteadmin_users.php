@@ -40,12 +40,15 @@ if(userIsSiteAdmin())
 	</form>
 	<hr/>
 <?php
-	if(isset($_GET['msgcode']))
+	if(isset($_SESSION['temp_success']))
 	{
-		if($_GET['msgcode']==11)
-			echo "Successful.";
-		elseif($_GET['msgcode']==12)
-			echo "User does not exist or belong to specified college, cannot change priviledges.";
+		echo "Successful.";
+		unset($_SESSION['temp_success']);
+	}
+	elseif(isset($_SESSION['temp_invalid']))
+	{
+		echo "User does not exist or belong to specified college, cannot change priviledges.";
+		unset($_SESSION['temp_invalid']);
 	}
 ?>
 	<br/>
@@ -58,17 +61,22 @@ if(userIsSiteAdmin())
 	<input type="submit" value="Reset">
 	</form>
 <?php
-	if(isset($_GET['msgcode']))
+	if(isset($_SESSION['temp_reset_passwd']))
 	{
-		if($_GET['msgcode']==90)
-			echo "Successfuly reset. New password is:&nbsp; ".$_GET['p']." &nbsp;(all lowercase)";
-		elseif($_GET['msgcode']==91)
-			echo "Invalid username.";
-		elseif($_GET['msgcode']==93)
-			echo "Cannot reset your own password.";
+		echo "Password successfuly reset. New password is:&nbsp; ".$_SESSION['temp_reset_passwd']." &nbsp;(all lowercase)";
+		unset($_SESSION['temp_reset_passwd']);
+	}
+	elseif(isset($_SESSION['temp_reset_invalid']))
+	{
+		echo "Invalid username. User does not exist, or doesn't belong to your college.";
+		unset($_SESSION['temp_reset_invalid']);
+	}
+	elseif(isset($_SESSION['temp_reset_isown']))
+	{
+		echo "Cannot reset your own password.";
+		unset($_SESSION['temp_reset_isown']);
 	}
 ?>
-
 <?
 	db_sysclose($CONN);
 }

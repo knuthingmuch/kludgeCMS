@@ -21,16 +21,16 @@ if(isset($_SESSION['uid']))
 				{
 					$newpasswd_hash=hash('sha256', $_POST['newpass2']);
 					mysqli_query($CONN,"UPDATE users SET passwd_hash='$newpasswd_hash' WHERE uid='".$_SESSION['uid']."';") or systemlog($_SERVER['PHP_SELF']."  SQL query error: ".mysqli_error($CONN));
-					$msgcode=0;	//success
+					$_SESSION['temp_success']=1;	//success
 				}
 				else
-					$msgcode=3;	//password should be at least MIN_PASSWD_LEN characters in length., value set in mysql-lib.php
+					$_SESSION['temp_minlen']=1;	//password should be at least MIN_PASSWD_LEN characters in length., value set in mysql-lib.php
 			}
 			else
-				$msgcode=2;	//do not match
+				$_SESSION['temp_nomatch']=1;	//do not match
 		}
 		else
-			$msgcode=1;	//wrong passwd
+			$_SESSION['temp_wrongpass']=1;	//wrong passwd
 	}
 	db_sysclose($CONN);
 	header('location: ../accountinfo.php?msgcode='.$msgcode);

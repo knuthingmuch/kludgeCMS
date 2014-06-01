@@ -25,14 +25,20 @@ if(isset($_GET['colgcode']))
 	<input type="submit" value="Unset">
 	</form>
 <?php
-	if(isset($_GET['msgcode']))
+	if(isset($_SESSION['temp_success']))
 	{
-		if($_GET['msgcode']==0)
-			echo "User priviledges successfully changed.";
-		else if($_GET['msgcode']==1)
-			echo "The username you typed is invalid.";
-		else if($_GET['msgcode']==2)
-			echo "You can't unset youself, ask another admin to do so.";
+		echo "User priviledges successfully changed.";
+		unset($_SESSION['temp_success']);
+	}
+	else if(isset($_SESSION['temp_invalid']))
+	{
+		echo "The username you typed is invalid.";
+		unset($_SESSION['temp_invalid']);
+	}
+	else if(isset($_SESSION['temp_isown']))
+	{
+		echo "You can't unset youself, ask another admin to do so.";
+		unset($_SESSION['temp_isown']);
 	}
 ?>
 	<br/>
@@ -75,14 +81,20 @@ if(isset($_GET['colgcode']))
 	<input type="submit" value="Reset">
 	</form>
 <?php
-	if(isset($_GET['msgcode']))
+	if(isset($_SESSION['temp_reset_passwd']))
 	{
-		if($_GET['msgcode']==90)
-			echo "Successfuly reset. New password is:&nbsp; ".$_GET['p']." &nbsp;(all lowercase)";
-		elseif($_GET['msgcode']==91)
-			echo "Invalid username. User does not exist, or doesn't belong to your college.";
-		elseif($_GET['msgcode']==93)
-			echo "Cannot reset your own password.";
+		echo "Password successfuly reset. New password is:&nbsp; ".$_SESSION['temp_reset_passwd']." &nbsp;(all lowercase)";
+		unset($_SESSION['temp_reset_passwd']);
+	}
+	elseif(isset($_SESSION['temp_reset_invalid']))
+	{
+		echo "Invalid username. User does not exist, or doesn't belong to your college.";
+		unset($_SESSION['temp_reset_invalid']);
+	}
+	elseif(isset($_SESSION['temp_reset_isown']))
+	{
+		echo "Cannot reset your own password.";
+		unset($_SESSION['temp_reset_isown']);
 	}
 ?>
 <?php
