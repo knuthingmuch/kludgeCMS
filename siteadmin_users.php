@@ -49,7 +49,26 @@ if(userIsSiteAdmin())
 	}
 ?>
 	<br/>
-	<a href="siteadmin_users.php">REFRESH</a>
+	<a href="siteadmin_users.php">REFRESH PAGE</a>
+	<hr/>
+	
+	<span>Reset password for user:</span>
+	<form action="proc/resetpasswd.php" method="post">
+	Username:<input type="text" name="resetuname">
+	<input type="submit" value="Reset">
+	</form>
+<?php
+	if(isset($_GET['msgcode']))
+	{
+		if($_GET['msgcode']==90)
+			echo "Successfuly reset. New password is:&nbsp; ".$_GET['p']." &nbsp;(all lowercase)";
+		elseif($_GET['msgcode']==91)
+			echo "Invalid username.";
+		elseif($_GET['msgcode']==93)
+			echo "Cannot reset your own password.";
+	}
+?>
+
 <?
 	db_sysclose($CONN);
 }

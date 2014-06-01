@@ -36,7 +36,7 @@ if(isset($_GET['colgcode']))
 	}
 ?>
 	<br/>
-	<a href="colgadmin_users.php?colgcode=<?php echo $_GET['colgcode']; ?>">REFRESH</a>
+	<a href="colgadmin_users.php?colgcode=<?php echo $_GET['colgcode']; ?>">REFRESH PAGE</a>
 	<br/>
 	<span>Note: These changes won't take effect until the specified user logs out.</span>
 	<br/>
@@ -67,6 +67,24 @@ if(isset($_GET['colgcode']))
 	</table>
 	<hr/>
 	Total registered users from your college: <?php echo $result['count']; ?>
+	<hr/>
+	
+	<span>Reset password for user:</span>
+	<form action="proc/resetpasswd.php" method="post">
+	Username:<input type="text" name="resetuname">
+	<input type="submit" value="Reset">
+	</form>
+<?php
+	if(isset($_GET['msgcode']))
+	{
+		if($_GET['msgcode']==90)
+			echo "Successfuly reset. New password is:&nbsp; ".$_GET['p']." &nbsp;(all lowercase)";
+		elseif($_GET['msgcode']==91)
+			echo "Invalid username. User does not exist, or doesn't belong to your college.";
+		elseif($_GET['msgcode']==93)
+			echo "Cannot reset your own password.";
+	}
+?>
 <?php
 	}
 	else
@@ -79,7 +97,7 @@ if(isset($_GET['colgcode']))
 	}
 }
 else
-	header('location: '.$_SERVER['HTTP_REFERER']) or header('location: ../index.php'); //TODO
+	header('location: '.$_SERVER['HTTP_REFERER']) or header('location: index.php'); //TODO
 
 require_once 'markup/template_botm.php';
 ?>

@@ -19,5 +19,8 @@ while($row=mysqli_fetch_array($result))
 }
 
 echo hash('sha256', 'pass');
+echo "<hr/>";
+
+echo substr(str_shuffle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 8);
 
 ?>

@@ -76,8 +76,8 @@ else if(userIsSiteAdmin())
 			$msgcode=11;	//success
 		}
 	}
-	header('location: ../siteadmin_users.php?msgcode='.$msgcode);
 	db_sysclose($CONN);
+	header('location: ../siteadmin_users.php?msgcode='.$msgcode);
 }
 else
 	header('location: '.$_SERVER['HTTP_REFERER']) or header('location: ../index.php');
