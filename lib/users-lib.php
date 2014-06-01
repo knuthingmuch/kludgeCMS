@@ -79,10 +79,15 @@ function login($uname,$passwd)
 			$_SESSION['utype']=$row['utype'];
 			$_SESSION['fullname']=$row['fullname'];
 			$_SESSION['collegecode']=$row['collegecode'];
-			if($_SESSION['utype']=='CADMIN' or $_SESSION['utype']=='SADMIN')	//is user is colg or site admin enable file upload.
+			if($_SESSION['utype']=='CADMIN')	//if user is colg or site admin enable file upload.
 			{
 				$_SESSION['KCFINDER']['disabled']=false;
 				$_SESSION['KCFINDER']['uploadURL']="../../uploads/".$_SESSION['collegecode'];
+			}
+			elseif ($_SESSION['utype']=='SADMIN')
+			{
+				$_SESSION['KCFINDER']['disabled']=false;
+				$_SESSION['KCFINDER']['uploadURL']="../../uploads/siteadmin";
 			}
 			return true;
 		}

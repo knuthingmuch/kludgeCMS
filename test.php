@@ -18,4 +18,6 @@ while($row=mysqli_fetch_array($result))
 	echo $row['collegecode']." ";
 }
 
+echo hash('sha256', 'pass');
+
 ?>

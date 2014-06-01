@@ -31,7 +31,7 @@ if(isset($_GET['colgcode']) and isset($_GET['page']))
 	}
 ?>
 	</nav>
-<?
+<?php
 }
 else
 {

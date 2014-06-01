@@ -6,6 +6,7 @@
 	<?php echo "Hello ".$_SESSION['fullname']; ?> |<div class="dropdwn">
 	<a class='topbar' href=''><div class='topnav' style='width:80px;'> ADMINISTER </div></a>
 	<ul>
+		<a class="dropdwn" href=""><li class="dropdwn"><div>EDIT MAIN</div></li></a>
 		<a class="dropdwn" href="siteadmin_users.php"><li class="dropdwn"><div>USERS</div></li></a>
 		<a class="dropdwn" href=""><li><div>COLLEGES</div></li></a>
 	</ul>

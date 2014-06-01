@@ -34,6 +34,8 @@ main {width:1080px; min-height:400px; margin:0 auto;}
 
 #content {width:840px;min-height:1125px;max-height:auto; margin-left:214px; background-color:white; border:2px solid #195dac; border-radius:5px; padding:0.45%; position:absolute;}
 
+#content div {border-radius:3px;}	/* for user added divs from ckeditor */
+
 #error {font-size:16px;font-weight:bold;text-align:center;padding-top:50px;}
 
 footer {width:100%;margin:0px;height:20px;text-align:center;font-size:13px;padding:3px;background-color:white;float:right;}
