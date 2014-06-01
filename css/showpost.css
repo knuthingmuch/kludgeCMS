@@ -13,3 +13,5 @@ span.edit {font-weight:normal;border:1px solid #195dac;border-radius:2px;padding
 span.edit:hover {font-weight:bold;}
 
 #postcontent {margin-top:10px;height:auto;overflow:auto;}
+
+#edittime{float:right;font-style:oblique;}

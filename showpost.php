@@ -41,11 +41,14 @@ if(!isset($_GET['postid']))
 
 	<div id='postcontent'>
 <?php
-	echo $postcontent;
+	echo $postcontent;	//MAIN BODY
+		if($postinfo['edittime'])
+		{
 ?>
+	<div id='edittime'>Last edited: <?php echo $postinfo['edittime']; ?></div>
 	</div>
-
 <?php
+		}
 	}
 	else
 	{
