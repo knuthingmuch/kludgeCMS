@@ -13,6 +13,9 @@ $db_sysuname='nsssitesystem';
 $db_syspasswd='nss123';
 $db_sysdbname='nsssite';
 //------------------------------------
+// 					GLOBAL DB RELATED VAR DEFS
+$MIN_PASSWD_LEN=8;
+//------------------------------------
 
 function db_sysconnect()
 {

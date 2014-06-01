@@ -13,10 +13,11 @@ if(userIsColgAdmin())
 		$result = mysqli_query($CONN,"SELECT uid,collegecode FROM users WHERE uname='".$uname."';") or systemlog($_SERVER['PHP_SELF']."  SQL query error: ".mysqli_error($CONN));
 		$row=mysqli_fetch_array($result);
 		if(mysqli_num_rows($result)==0 or isSiteAdmin($row['uid']) or $row['collegecode']!=$_SESSION['collegecode'])	//make sure user exists & is from same colg, and not siteadmin.
-			$msgcode=1;
+			$msgcode=1;	//username invalid
 		else
 		{
 			mysqli_query($CONN,"UPDATE users SET utype='CADMIN' WHERE uname='".$uname."';") or systemlog($_SERVER['PHP_SELF']."  SQL query error: ".mysqli_error($CONN));
+			$msgcode=0;	//success
 		}
 	}
 	else if(isset($_POST['removeuname']))
@@ -27,19 +28,20 @@ if(userIsColgAdmin())
 		if($uname!=$_SESSION['uname'])	//can't unset yourself.
 		{
 			if(mysqli_num_rows($result)==0 or isSiteAdmin($row['uid']) or $row['collegecode']!=$_SESSION['collegecode'])	//make sure user exists & is from same colg, and not siteadmin.
-				$msgcode=1;
+				$msgcode=1;	//username invalid
 			else
 			{
 				if($_SESSION['collegecode']==$row['collegecode'])		//can only set user from his own colg as co-admin.
 				{
 					mysqli_query($CONN,"UPDATE users SET utype='BASIC' WHERE uname='".$uname."';") or systemlog($_SERVER['PHP_SELF']."  SQL query error: ".mysqli_error($CONN));
+					$msgcode=0;	//success
 				}
 				else
-					$msgcode=1;
+					$msgcode=1;	//username invalid
 			}
 		}
 		else
-			$msgcode=2;
+			$msgcode=2;	//only colgadmin, can't unset.
 	}
 	db_sysclose($CONN);
 	header('location: ../colgadmin_users.php?colgcode='.$_SESSION['collegecode'].'&msgcode='.$msgcode);
@@ -56,10 +58,10 @@ else if(userIsSiteAdmin())
 		if($row['collegecode']==$_POST['colgcode'] and !isSiteAdmin($row['uid']))	//user should exist and belong to college, and not be site admin.
 		{
 			mysqli_query($CONN,"UPDATE users SET utype='CADMIN' WHERE uname='".$_POST['setuname']."';") or systemlog($_SERVER['PHP_SELF']."  SQL query error: ".mysqli_error($CONN));
-			$msgcode=11;
+			$msgcode=11;	//success
 		}
 		else
-			$msgcode=12;
+			$msgcode=12;	//user not found in college
 	}
 	header('location: ../siteadmin_users.php?msgcode='.$msgcode);
 	db_sysclose($CONN);

@@ -27,7 +27,9 @@ if(isset($_GET['colgcode']))
 <?php
 	if(isset($_GET['msgcode']))
 	{
-		if($_GET['msgcode']==1)
+		if($_GET['msgcode']==0)
+			echo "User priviledges successfully changed.";
+		else if($_GET['msgcode']==1)
 			echo "The username you typed is invalid.";
 		else if($_GET['msgcode']==2)
 			echo "You can't unset youself, ask another admin to do so.";

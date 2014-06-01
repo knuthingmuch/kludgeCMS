@@ -11,7 +11,7 @@
 		<a class="dropdwn" href="listposts.php?colgcode=<?php echo $_SESSION['collegecode'] ?>&page=0"><li class="dropdwn"><div>VIEW POSTS</div></li></a>
 		<a class="dropdwn" href="writenewpost.php?colgcode=<?php echo $_SESSION['collegecode'];?>"><li><div>NEW POST</div></li></a>
 	</ul>
-	</div>|<a class='topbar' href=''>
+	</div>|<a class='topbar' href='accountinfo.php'>
 	<div class='topnav'>ACCOUNT</div>
 	</a>|<a class='topbar' href='proc/userlogout.php'>
 	<div class='topnav' id='logoutbtn'>LOGOUT</div>

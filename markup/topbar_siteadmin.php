@@ -10,7 +10,7 @@
 		<a class="dropdwn" href="siteadmin_users.php"><li class="dropdwn"><div>USERS</div></li></a>
 		<a class="dropdwn" href=""><li><div>COLLEGES</div></li></a>
 	</ul>
-	</div>|<a class='topbar' href='#'><div class='topnav'>ACCOUNT</div>
+	</div>|<a class='topbar' href='accountinfo.php'><div class='topnav'>ACCOUNT</div>
 	</a>|<a class='topbar' href='proc/userlogout.php'><div class='topnav' id='logoutbtn'>LOGOUT</div>
 	</a>|<a class='searchbtn topbar' href='#'><div class='topnav'>SEARCH</div></a>
 

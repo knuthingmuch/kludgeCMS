@@ -5,7 +5,7 @@
 	<ul>
 		<a class="dropdwn" href="listposts.php?colgcode=<?php echo $_SESSION['collegecode'] ?>&page=0"><li><div>VIEW POSTS</div></li></a>
 	</ul>
-	</div>|<a class='topbar' href=''><div class='topnav'>ACCOUNT</div>
+	</div>|<a class='topbar' href='accountinfo.php'><div class='topnav'>ACCOUNT</div>
 	</a>|<a class='topbar' href='proc/userlogout.php'><div class='topnav' id='logoutbtn'>LOGOUT</div>
 	</a>|<a class='searchbtn topbar' href='qsearchpage.php'><div class='topnav'>SEARCH</div></a>
 </div> 
