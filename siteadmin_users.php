@@ -9,6 +9,7 @@ if(userIsSiteAdmin())
 	$CONN=db_sysconnect();
 	$result=mysqli_query($CONN,"SELECT collegecode,collegename FROM colleges;") or systemlog($_SERVER['PHP_SELF']."  SQL query error: ".mysqli_error($CONN));
 ?>
+	<br/>
 	<span>Set user as college admin.</span>
 	<form action="proc/setcolgadmin.php" method="post">
 	Username:<input type="text" name="setuname">
@@ -22,19 +23,35 @@ if(userIsSiteAdmin())
 	</select>
 	<input type="submit" value="Set">
 	</form>
+	<hr/>
+	<span>Remove user as college admin.</span>
+	<form action="proc/setcolgadmin.php" method="post">
+	Username:<input type="text" name="removeuname">
+	College:<select name="colgcode">
+<?php
+	$result=mysqli_query($CONN,"SELECT collegecode,collegename FROM colleges;") or systemlog($_SERVER['PHP_SELF']."  SQL query error: ".mysqli_error($CONN));
+	while($row=mysqli_fetch_array($result))
+	{
+		echo "<option value='".$row['collegecode']."'>".$row['collegename']."</option>";
+	}
+?>
+	</select>
+	<input type="submit" value="Remove">
+	</form>
+	<hr/>
 <?php
 	if(isset($_GET['msgcode']))
 	{
 		if($_GET['msgcode']==11)
 			echo "Successful.";
 		elseif($_GET['msgcode']==12)
-			echo "User does not belong to specified college, cannot grant admin priviledges.";
+			echo "User does not exist or belong to specified college, cannot change priviledges.";
 	}
 ?>
 	<br/>
 	<a href="siteadmin_users.php">REFRESH</a>
-	<hr/>
 <?
+	db_sysclose($CONN);
 }
 else
 {

@@ -1,6 +1,6 @@
 NO session_start() in markup whatsoever. All user interface pages should have session_start(), same goes for proccessing pages(except those using login()).
 
-Original plan was to have DB access API... So now, a Kludge it is...
+Original plan was to have API for DB operations but later scrapped. Hence the structure, and the name-Kludge CMS.
 ===============================================================================================================
 MUST DO:
 	CHECK SIZES OF ALL DATATYPES BEFORE GOING INTO PRODUCTION.

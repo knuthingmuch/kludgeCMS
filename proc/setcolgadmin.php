@@ -63,6 +63,19 @@ else if(userIsSiteAdmin())
 		else
 			$msgcode=12;	//user not found in college
 	}
+	else if(isset($_POST['removeuname']))
+	{
+		$uname=mysqli_real_escape_string($CONN,$_POST['removeuname']);
+		$result = mysqli_query($CONN,"SELECT uid,collegecode FROM users WHERE uname='".$uname."';") or systemlog($_SERVER['PHP_SELF']."  SQL query error: ".mysqli_error($CONN));
+		$row=mysqli_fetch_array($result);
+		if(mysqli_num_rows($result)==0 or isSiteAdmin($row['uid']) or $row['collegecode']!=$_POST['colgcode'])	//make sure user exists & is from specified colg, and is not siteadmin.
+			$msgcode=12;	//username invalid
+		else
+		{
+			mysqli_query($CONN,"UPDATE users SET utype='BASIC' WHERE uname='".$uname."';") or systemlog($_SERVER['PHP_SELF']."  SQL query error: ".mysqli_error($CONN));
+			$msgcode=11;	//success
+		}
+	}
 	header('location: ../siteadmin_users.php?msgcode='.$msgcode);
 	db_sysclose($CONN);
 }

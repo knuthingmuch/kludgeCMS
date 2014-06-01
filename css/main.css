@@ -38,7 +38,7 @@ main {width:1080px; min-height:400px; margin:0 auto;}
 
 #error {font-size:16px;font-weight:bold;text-align:center;padding-top:50px;}
 
-footer {width:100%;margin:0px;height:20px;text-align:center;font-size:13px;padding:3px;background-color:white;float:right;}
+footer {width:100%;margin:0px;height:30px;text-align:center;font-size:13px;padding:3px 3px 8px 3px;background-color:white;float:right;}
 /* ------------------------------------------------------------------------------------------------------------------------------------ */
 
 /*---------------------------------------------------  POPUPS STYLING ------------------------------------------------------------------ */
