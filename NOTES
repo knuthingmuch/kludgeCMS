@@ -2,11 +2,14 @@ NO session_start() in markup whatsoever. All user interface pages should have se
 
 Original plan was to have API for DB operations but later scrapped. Hence the structure, and the name-Kludge CMS.
 ===============================================================================================================
+Mail Auth:sitebot@nssgoa.com, NSSGU@Xav3
+
 MUST DO:
 	CHECK SIZES OF ALL DATATYPES BEFORE GOING INTO PRODUCTION.
-	REGISTRATION FORM VALIDATION.(uname:[A-Za-z0-9_]) (fullname:[A-Za-z]) (utype check for user side foo)
-	COMPREHENSIVE ERROR LOGGING.
-	LICENSING.
+	REGISTRATION FORM VALIDATION.(uname:[A-Za-z0-9_]) (fullname:[A-Za-z and space]) (email:) (utype check for user side foo)
+	COMPREHENSIVE ERROR LOGGING. Turn off O/P to markup.
+	Remove this file.
 	
 INSTRUCTIONS:
-	On adding new college create collegecode named directory in uploads.
+	Create website banner(size:1076x58 px)
+	On adding new college create collegecode named directory in uploads directory.

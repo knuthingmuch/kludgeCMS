@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 require_once 'lib/users-lib.php';
 require_once 'lib/mysql-lib.php';
 

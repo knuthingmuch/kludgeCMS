@@ -3,7 +3,7 @@
 </main>
 
 <footer>
-Kludge CMS
+KludgeCMS
 <br/>
 Copyright &copy; <?php echo date('Y'); ?> Akshay Naik
 </footer>
